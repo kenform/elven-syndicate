@@ -64,7 +64,7 @@ const content = {
       title: 'Websites and AI assistants with a dark fantasy edge.',
       text: 'Elven Syndicate creates premium websites, AI sales assistants and Telegram-first systems that turn attention into clear, qualified requests.',
       primary: 'Discuss on Telegram',
-      secondary: 'Explore services',
+      secondary: 'View projects',
       coreTitle: 'Arcane AI Core',
       coreText: 'A cinematic identity for premium websites, AI assistant interfaces and Telegram-first digital systems.',
       stats: [
@@ -303,7 +303,7 @@ const content = {
       button: 'Ask assistant',
     },
     ui: {
-      startProject: 'Start a project',
+      startProject: 'Write',
       close: 'Close',
       openMenu: 'Open menu',
       closeMenu: 'Close menu',
@@ -327,7 +327,7 @@ const content = {
       title: 'Сайты и AI-ассистенты в dark fantasy стиле.',
       text: 'Elven Syndicate создаёт премиальные сайты, AI-продавцов и Telegram-first системы, которые превращают внимание в понятные заявки.',
       primary: 'Обсудить в Telegram',
-      secondary: 'Смотреть услуги',
+      secondary: 'Смотреть проекты',
       coreTitle: 'Arcane AI Core',
       coreText: 'Кинематографичная айдентика для премиальных сайтов, AI-интерфейсов и Telegram-first систем.',
       stats: [
@@ -566,7 +566,7 @@ const content = {
       button: 'Спросить ассистента',
     },
     ui: {
-      startProject: 'Начать проект',
+      startProject: 'Написать',
       close: 'Закрыть',
       openMenu: 'Открыть меню',
       closeMenu: 'Закрыть меню',
@@ -644,10 +644,10 @@ function Header({
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                className="group relative text-xs font-semibold text-mist transition duration-300 hover:text-white lg:text-sm"
+                className="group relative -my-3 inline-flex rounded-full px-3 py-3 text-xs font-semibold text-mist transition-all duration-300 hover:bg-white/[0.045] hover:text-white lg:text-sm"
               >
                 {item.label}
-                <span className="absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 rounded-full bg-[#62d5d3] shadow-[0_0_14px_rgba(88,207,208,.34)] transition-transform duration-300 group-hover:scale-x-100" />
+                <span className="absolute bottom-1 left-3 h-px w-[calc(100%-1.5rem)] origin-left scale-x-0 rounded-full bg-[#7ee3e1] shadow-[0_0_14px_rgba(126,227,225,.32)] transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             ))}
           </nav>
@@ -1077,6 +1077,86 @@ function StudioConsole({ lang }: { lang: Lang }) {
   );
 }
 
+
+function ExperienceBlock({ lang }: { lang: Lang }) {
+  const t = lang === 'ru'
+    ? {
+        label: 'Опыт',
+        title: 'Практический опыт в web, AI и запуске проектов.',
+        text: 'Этот блок показывает не выдуманные места работы, а реальные направления, на которых строится Elven Syndicate: интерфейсы, AI-сценарии, Telegram-логика и аккуратный production-ready запуск.',
+        items: [
+          {
+            title: 'Frontend & UI',
+            meta: 'React · TypeScript · Tailwind',
+            text: 'Адаптивные интерфейсы, чистая структура секций, сильный первый экран, аккуратная мобильная версия и понятная визуальная система.',
+          },
+          {
+            title: 'AI & Telegram flows',
+            meta: 'Assistant · Lead flow · Brief',
+            text: 'Сценарии, где сайт не просто показывает информацию, а собирает контекст, квалифицирует заявку и ведёт человека в Telegram.',
+          },
+          {
+            title: 'Launch & polish',
+            meta: 'GitHub · Vercel · SEO',
+            text: 'Деплой, метаданные, favicon, проверка мобильной версии, быстрая загрузка и последовательная полировка после первого релиза.',
+          },
+        ],
+      }
+    : {
+        label: 'Experience',
+        title: 'Practical experience across web, AI and launches.',
+        text: 'This section avoids fake job history and focuses on the real directions behind Elven Syndicate: interfaces, AI flows, Telegram logic and production-ready delivery.',
+        items: [
+          {
+            title: 'Frontend & UI',
+            meta: 'React · TypeScript · Tailwind',
+            text: 'Responsive interfaces, clean section structure, strong hero screens, polished mobile layouts and consistent visual systems.',
+          },
+          {
+            title: 'AI & Telegram flows',
+            meta: 'Assistant · Lead flow · Brief',
+            text: 'Flows where the site does not only present information, but collects context, qualifies requests and moves people into Telegram.',
+          },
+          {
+            title: 'Launch & polish',
+            meta: 'GitHub · Vercel · SEO',
+            text: 'Deployment, metadata, favicon, mobile checks, fast loading and structured polishing after the first release.',
+          },
+        ],
+      };
+
+  return (
+    <section id="experience" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div className="lg:sticky lg:top-28">
+          <SectionLabel>{t.label}</SectionLabel>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">{t.title}</h2>
+          <p className="mt-5 text-lg leading-8 text-mist">{t.text}</p>
+        </div>
+
+        <div className="grid gap-4">
+          {t.items.map((item, index) => (
+            <article key={item.title} className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-500 hover:-translate-y-1 hover:border-emerald/35 hover:bg-white/[0.055]">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-emerald/10 blur-3xl transition duration-500 group-hover:bg-violet/15" />
+              <div className="relative grid gap-5 sm:grid-cols-[4.5rem_1fr]">
+                <div className="grid h-16 w-16 place-items-center rounded-2xl border border-gold/25 bg-gold/10 text-sm font-black text-gold">
+                  0{index + 1}
+                </div>
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald">{item.meta}</p>
+                  <h3 className="mt-3 text-2xl font-semibold text-white">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-mist">{item.text}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function ResultCards({ lang }: { lang: Lang }) {
   const t = lang === 'ru'
     ? {
@@ -1201,7 +1281,7 @@ function App() {
                 <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta inline-flex w-full items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(70,188,186,.22)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-[#8bdad8] sm:w-auto">
                   {copy.hero.primary}
                 </a>
-                <a href="#services" className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-6 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white/10 sm:w-auto">
+                <a href="https://portfolio-pi-snowy-53.vercel.app/#portfolio" target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-6 py-4 text-sm font-black text-white backdrop-blur transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-emerald/45 hover:bg-white/10 sm:w-auto">
                   {copy.hero.secondary}
                 </a>
               </div>
@@ -1239,6 +1319,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <ExperienceBlock lang={lang} />
 
         <section id="services" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="mb-10 grid gap-6 lg:grid-cols-[0.75fr_1fr] lg:items-end">

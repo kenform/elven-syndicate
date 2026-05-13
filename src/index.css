@@ -329,3 +329,9 @@ a {
     transform: none;
   }
 }
+
+
+/* tiny support class marker: nav hit area is handled in Tailwind classes */
+.nav-hit-polish {
+  pointer-events: auto;
+}
