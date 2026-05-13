@@ -116,14 +116,28 @@ function Header() {
         </div>
 
         <div className={`relative mx-auto max-w-md transition duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
-          <div className="mb-7 flex items-center gap-3">
-            <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-emerald/40 bg-white/[0.04] shadow-arcane">
-              <img src={assets.logo} alt="" className="h-full w-full object-cover" width="48" height="48" />
-            </span>
-            <div>
-              <p className="text-sm font-semibold tracking-[0.25em] text-white">ELVEN</p>
-              <p className="text-xs uppercase tracking-[0.31em] text-mist">Syndicate</p>
+          <div className="mb-7 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-emerald/40 bg-white/[0.04] shadow-arcane">
+                <img src={assets.logo} alt="" className="h-full w-full object-cover" width="48" height="48" />
+              </span>
+              <div>
+                <p className="text-sm font-semibold tracking-[0.25em] text-white">ELVEN</p>
+                <p className="text-xs uppercase tracking-[0.31em] text-mist">Syndicate</p>
+              </div>
             </div>
+
+            <button
+              type="button"
+              onClick={closeMenu}
+              className="grid h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/[0.08] text-white transition hover:bg-white/12"
+              aria-label="Close menu"
+            >
+              <span className="relative h-5 w-5">
+                <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 rotate-45 rounded-full bg-current" />
+                <span className="absolute left-0 top-1/2 h-0.5 w-5 -translate-y-1/2 -rotate-45 rounded-full bg-current" />
+              </span>
+            </button>
           </div>
 
           <nav className="grid gap-3" aria-label="Mobile navigation">
