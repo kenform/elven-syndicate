@@ -803,3 +803,96 @@ header nav button:focus-visible::after {
     transition: none !important;
   }
 }
+
+
+/* ABSOLUTE FIX: header hover line only */
+
+/* 1) Прячем ВСЕ старые линии/декор внутри nav, которые могли остаться из JSX/Tailwind */
+html body header nav a [class*="absolute"],
+html body header nav button [class*="absolute"],
+html body header nav a [class*="bottom"],
+html body header nav button [class*="bottom"],
+html body header nav a [class*="shadow"],
+html body header nav button [class*="shadow"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* 2) Убираем плашки/кружки/фон у пунктов */
+html body header nav a,
+html body header nav button {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 42px !important;
+  padding: 0.58rem 0.72rem !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+html body header nav a:hover,
+html body header nav button:hover,
+html body header nav a:focus-visible,
+html body header nav button:focus-visible,
+html body header nav a.active,
+html body header nav button.active,
+html body header nav a[aria-current="page"],
+html body header nav button[aria-current="page"],
+html body header nav a[class*="bg-white"],
+html body header nav button[class*="bg-white"] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 3) По умолчанию линия полностью выключена */
+html body header nav a::before,
+html body header nav button::before,
+html body header nav a::after,
+html body header nav button::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 4px !important;
+  width: 34px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: rgba(90, 218, 214, 0.88) !important;
+  box-shadow: 0 0 10px rgba(90, 218, 214, 0.28) !important;
+  opacity: 0 !important;
+  display: block !important;
+  transform: translateX(-50%) scaleX(0) !important;
+  transform-origin: center !important;
+  pointer-events: none !important;
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* 4) На НЕ-hover принудительно скрываем даже если старые классы пытаются включить */
+html body header nav a:not(:hover):not(:focus-visible)::before,
+html body header nav button:not(:hover):not(:focus-visible)::before,
+html body header nav a:not(:hover):not(:focus-visible)::after,
+html body header nav button:not(:hover):not(:focus-visible)::after {
+  opacity: 0 !important;
+  transform: translateX(-50%) scaleX(0) !important;
+}
+
+/* 5) Показываем только при наведении */
+html body header nav a:hover::after,
+html body header nav button:hover::after,
+html body header nav a:focus-visible::after,
+html body header nav button:focus-visible::after {
+  opacity: 1 !important;
+  transform: translateX(-50%) scaleX(1) !important;
+}
+
+/* before вообще не используем, чтобы не было двойной линии */
+html body header nav a::before,
+html body header nav button::before {
+  display: none !important;
+}
