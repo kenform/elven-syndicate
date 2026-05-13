@@ -16,20 +16,27 @@ const navItems = [
 ];
 
 const heroStats = [
-  { value: '24/7', label: 'AI response' },
-  { value: 'Vite', label: 'fast frontend' },
+  { value: '24/7', label: 'assistant online' },
+  { value: 'Fast', label: 'Vite + React build' },
   { value: 'TG', label: 'lead handoff' },
 ];
 
 const services = [
-  { title: 'Premium landing pages', text: 'Adaptive sites with strong first screens, clean structure and conversion-focused sections.' },
-  { title: 'AI sales assistants', text: 'Chat widgets that qualify visitors, collect context and guide users toward a request.' },
-  { title: 'Telegram funnels', text: 'Telegram-first contact flows for quick conversations, briefs and lead delivery.' },
-  { title: 'Portfolio & brand systems', text: 'Personal and studio websites with a polished visual identity and reusable components.' },
+  { title: 'Premium landing pages', text: 'Modern responsive websites with strong hero sections, clear offers, fast loading and Telegram-ready CTA flows.' },
+  { title: 'AI sales assistants', text: 'Assistant widgets that answer questions, collect client context, qualify leads and prepare requests before you reply.' },
+  { title: 'Telegram funnels', text: 'Simple conversion paths where visitors move from the website into Telegram with a clear task, budget and project brief.' },
+  { title: 'Portfolio & brand systems', text: 'Personal and studio websites with memorable visuals, reusable components and a style that feels like a real brand.' },
 ];
 
 const stack = ['React', 'TypeScript', 'Vite', 'Tailwind', 'Vercel', 'Telegram', 'AI widgets', 'SEO'];
-const process = ['Brief', 'Concept', 'Interface', 'Development', 'Launch', 'Improve'];
+const process = [
+  { title: 'Brief', text: 'We collect the goal, niche, references, target action and the exact feeling the website should create.' },
+  { title: 'Concept', text: 'We turn the raw idea into structure: sections, offer, visual direction, CTA logic and future content placeholders.' },
+  { title: 'Interface', text: 'We build the first strong screen, cards, rhythm, mobile layout and the core visual system of the project.' },
+  { title: 'Development', text: 'We code the site with React, TypeScript and Tailwind: clean components, responsive layout and no unnecessary bloat.' },
+  { title: 'Launch', text: 'We push to GitHub, deploy on Vercel, check the production link, metadata, favicon and basic performance.' },
+  { title: 'Improve', text: 'We refine texts, add real cases, AI widgets, animations, analytics and stronger conversion mechanics.' },
+];
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -132,11 +139,11 @@ function App() {
               </p>
 
               <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
-                AI-powered websites with a dark fantasy edge.
+                Websites and AI assistants with a dark fantasy edge.
               </h1>
 
               <p className="mt-7 max-w-2xl text-base leading-8 text-mist sm:text-lg">
-                Elven Syndicate creates premium landing pages, AI sales assistants and digital systems that turn attention into qualified requests.
+                Elven Syndicate creates premium websites, AI sales assistants and Telegram-first systems that turn attention into clear, qualified requests.
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -161,35 +168,35 @@ function App() {
             <div className="relative mx-auto w-full max-w-[660px]">
               <div className="absolute -inset-6 rounded-[3rem] bg-emerald/10 blur-3xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-arcane backdrop-blur">
-                <img src={assets.hero} alt="Elven developer controlling holographic AI interfaces" className="h-full min-h-[420px] w-full object-cover object-center" width="1792" height="1024" />
-                <div className="absolute inset-0 bg-gradient-to-r from-void/50 via-transparent to-void/5" />
+                <img src={assets.hero} alt="Elven developer controlling holographic AI interfaces" className="h-full min-h-[460px] w-full object-cover object-center" width="1792" height="1024" />
+                <div className="absolute inset-0 bg-gradient-to-r from-void/35 via-transparent to-void/5" />
                 <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-black/45 p-4 backdrop-blur-xl">
                   <p className="text-xs font-black uppercase tracking-[0.28em] text-emerald">Arcane AI Core</p>
-                  <p className="mt-2 text-sm leading-6 text-mist">A visual identity for premium AI websites, assistant interfaces and Telegram-first digital systems.</p>
+                  <p className="mt-2 text-sm leading-6 text-mist">A cinematic identity for premium websites, AI assistant interfaces and Telegram-first digital systems.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="about" className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <section id="about" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionLabel>About</SectionLabel>
             <div>
               <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                A studio prototype for premium web and AI experiences.
+                A fantasy-tech studio for premium web and AI experiences.
               </h2>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-mist">
-                The site is built as a scalable foundation: strong visuals, clean components, mobile-first layout, clear sections and space for future effects, cases and AI widgets.
+                The project combines frontend development, visual storytelling and AI-ready architecture. It is built as a scalable foundation: strong visuals, clean components, mobile-first layout, clear sections and space for future effects, cases and assistant widgets.
               </p>
             </div>
           </div>
         </section>
 
-        <section id="services" className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <section id="services" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-2xl">
             <SectionLabel>Services</SectionLabel>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">What we build</h2>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">What we craft</h2>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -203,7 +210,7 @@ function App() {
           </div>
         </section>
 
-        <section id="stack" className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <section id="stack" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
           <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur sm:p-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <SectionLabel>Stack</SectionLabel>
@@ -219,7 +226,7 @@ function App() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
           <div className="grid items-center gap-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 backdrop-blur sm:p-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="overflow-hidden rounded-[1.5rem] border border-violet/20 bg-black/30">
               <img src={assets.core} alt="Floating emerald crystal inside an arcane AI interface" className="h-full min-h-[320px] w-full object-cover" width="1792" height="1024" loading="lazy" />
@@ -227,50 +234,48 @@ function App() {
             <div className="p-2 sm:p-6">
               <SectionLabel>Visual System</SectionLabel>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                Magical interface language for AI-first websites.
+                A magical interface language for AI-first websites.
               </h2>
               <p className="mt-6 text-lg leading-8 text-mist">
-                Crystals, runes and holographic UI details become part of the brand system: premium enough for a studio, clear enough for a business landing.
+                Crystals, runes and holographic UI details become part of the brand system: premium enough for a studio, readable enough for a real business landing page.
               </p>
             </div>
           </div>
         </section>
 
-        <section id="process" className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <section id="process" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
           <SectionLabel>Process</SectionLabel>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
             From rough idea to production-ready digital system.
           </h2>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {process.map((item, index) => (
-              <article key={item} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
+              <article key={item.title} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:-translate-y-1 hover:border-emerald/35">
                 <p className="text-sm font-black text-gold">0{index + 1}</p>
-                <h3 className="mt-5 text-2xl font-semibold text-white">{item}</h3>
-                <p className="mt-4 leading-7 text-mist">
-                  Placeholder step description. Later we will replace it with the exact workflow and real project details.
-                </p>
+                <h3 className="mt-5 text-2xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-4 leading-7 text-mist">{item.text}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
           <div className="rounded-[2rem] border border-violet/20 bg-violet/10 p-8 shadow-violet backdrop-blur sm:p-12">
             <SectionLabel>Trust</SectionLabel>
             <h2 className="mt-5 max-w-4xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              Built to become a real portfolio-grade project, not a temporary demo.
+              Designed to become a portfolio-grade project, not a temporary demo.
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-mist">
-              Next iterations will add refined animations, AI assistant widget, cases, testimonials and final copywriting.
+              The next iterations will add refined animations, an AI assistant widget, real cases, testimonials, analytics and final copywriting for a production-ready presentation.
             </p>
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-7xl px-5 py-24 sm:px-6 lg:px-8">
+        <section id="contact" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
           <div className="rounded-[2rem] border border-emerald/20 bg-emerald/10 p-8 text-center shadow-arcane backdrop-blur sm:p-12">
-            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">Ready to summon your digital system?</h2>
+            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">Ready to build your digital system?</h2>
             <p className="mx-auto mt-5 max-w-2xl leading-8 text-mist">
-              Tell me your niche, goal, references and desired style. The next iteration will turn this prototype into a stronger production-ready website.
+              Send your niche, goal, references and desired style. I’ll turn the idea into a strong website concept, clean frontend and AI-ready client flow.
             </p>
             <a href="https://t.me/ElvenSyndicateStudio" className="mt-8 inline-flex rounded-2xl bg-emerald px-7 py-4 font-black text-void transition hover:-translate-y-0.5 hover:bg-[#68ffd5]">
               Contact in Telegram
