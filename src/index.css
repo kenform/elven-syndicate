@@ -720,3 +720,165 @@ header nav button[aria-current="page"]::after {
     transition: none !important;
   }
 }
+
+
+/* FORCE PATCH: custom scrollbar nav underline egg crop */
+
+/* Hide weak native scrollbar; we render our own draggable premium rail */
+html.elven-custom-scrollbar-enabled {
+  scrollbar-width: none !important;
+}
+
+html.elven-custom-scrollbar-enabled::-webkit-scrollbar,
+html.elven-custom-scrollbar-enabled body::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+#elven-scrollbar {
+  position: fixed;
+  top: 108px;
+  right: 8px;
+  bottom: 24px;
+  z-index: 99999;
+  width: 26px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)),
+    radial-gradient(circle at 50% 12%, rgba(94,224,219,.18), transparent 42%);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.025),
+    0 0 28px rgba(0,0,0,.38);
+  backdrop-filter: blur(10px);
+}
+
+#elven-scrollbar-thumb {
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 18px;
+  min-height: 128px;
+  border-radius: 999px;
+  cursor: grab;
+  background:
+    linear-gradient(180deg, rgba(143,248,244,1), rgba(86,218,213,.98) 48%, rgba(52,159,174,.94)),
+    radial-gradient(circle at 50% 14%, rgba(255,255,255,.5), transparent 36%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.28),
+    0 0 28px rgba(94,224,219,.38),
+    0 0 58px rgba(94,224,219,.14);
+  transition:
+    width 260ms cubic-bezier(.22,1,.36,1),
+    left 260ms cubic-bezier(.22,1,.36,1),
+    box-shadow 260ms cubic-bezier(.22,1,.36,1),
+    background 260ms cubic-bezier(.22,1,.36,1);
+}
+
+#elven-scrollbar-thumb:hover,
+#elven-scrollbar-thumb.is-dragging {
+  left: 2px;
+  width: 22px;
+  background:
+    linear-gradient(180deg, rgba(171,255,252,1), rgba(99,232,226,1) 48%, rgba(101,88,222,.78));
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.36),
+    0 0 42px rgba(94,224,219,.55),
+    0 0 90px rgba(94,224,219,.18);
+}
+
+#elven-scrollbar-thumb.is-dragging {
+  cursor: grabbing;
+}
+
+@media (max-width: 900px) {
+  #elven-scrollbar {
+    display: none;
+  }
+
+  html.elven-custom-scrollbar-enabled {
+    scrollbar-width: auto !important;
+  }
+}
+
+/* Header underline: target the real Tailwind span + pseudo fallback */
+header nav a,
+header nav button {
+  position: relative !important;
+  display: inline-flex !important;
+  min-height: 54px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: .86rem 1.05rem !important;
+  border-radius: 999px !important;
+}
+
+header nav a > span.absolute,
+header nav button > span.absolute,
+header nav a::after,
+header nav button::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 6px !important;
+  width: calc(100% - 18px) !important;
+  height: 6px !important;
+  border-radius: 999px !important;
+  transform: translateX(-50%) scaleX(0) !important;
+  transform-origin: center !important;
+  opacity: 0 !important;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(94,224,219,.72) 17%, rgba(160,255,252,1) 50%, rgba(94,224,219,.72) 83%, transparent 100%) !important;
+  box-shadow:
+    0 0 18px rgba(94,224,219,.55),
+    0 0 36px rgba(94,224,219,.24) !important;
+  transition:
+    transform 520ms cubic-bezier(.22,1,.36,1),
+    opacity 420ms cubic-bezier(.22,1,.36,1),
+    box-shadow 520ms cubic-bezier(.22,1,.36,1) !important;
+}
+
+header nav a:hover > span.absolute,
+header nav button:hover > span.absolute,
+header nav a:hover::after,
+header nav button:hover::after,
+header nav a:focus-visible > span.absolute,
+header nav button:focus-visible > span.absolute,
+header nav a:focus-visible::after,
+header nav button:focus-visible::after,
+header nav a.active > span.absolute,
+header nav button.active > span.absolute,
+header nav a.active::after,
+header nav button.active::after,
+header nav a[aria-current="page"] > span.absolute,
+header nav button[aria-current="page"] > span.absolute,
+header nav a[aria-current="page"]::after,
+header nav button[aria-current="page"]::after,
+header nav a[class*="bg-white"] > span.absolute,
+header nav button[class*="bg-white"] > span.absolute,
+header nav a[class*="bg-white"]::after,
+header nav button[class*="bg-white"]::after {
+  opacity: 1 !important;
+  transform: translateX(-50%) scaleX(1) !important;
+}
+
+/* Testimonials egg crop: one central seal, not side halves */
+.review-seal-frame {
+  min-height: 590px !important;
+}
+
+.review-seal-image {
+  object-position: 50% 50% !important;
+  transform: scale(2.42) !important;
+}
+
+@media (max-width: 768px) {
+  .review-seal-frame {
+    min-height: 440px !important;
+  }
+
+  .review-seal-image {
+    transform: scale(2.22) !important;
+  }
+}

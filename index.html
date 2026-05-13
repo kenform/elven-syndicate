@@ -15,5 +15,101 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+  
+<!-- ELVEN_CUSTOM_SCROLLBAR_START -->
+<script>
+(function () {
+  function initElvenScrollbar() {
+    if (window.innerWidth <= 900) return;
+    if (document.getElementById('elven-scrollbar')) return;
+
+    document.documentElement.classList.add('elven-custom-scrollbar-enabled');
+
+    var rail = document.createElement('div');
+    var thumb = document.createElement('div');
+
+    rail.id = 'elven-scrollbar';
+    thumb.id = 'elven-scrollbar-thumb';
+
+    rail.appendChild(thumb);
+    document.body.appendChild(rail);
+
+    var dragging = false;
+    var startY = 0;
+    var startScroll = 0;
+
+    function maxScroll() {
+      return Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    }
+
+    function update() {
+      var rect = rail.getBoundingClientRect();
+      var pageHeight = document.documentElement.scrollHeight;
+      var viewport = window.innerHeight;
+      var ratio = Math.min(1, viewport / pageHeight);
+      var h = Math.max(128, Math.round(rect.height * ratio));
+      var top = Math.round((window.scrollY / maxScroll()) * (rect.height - h));
+
+      thumb.style.height = h + 'px';
+      thumb.style.transform = 'translateY(' + top + 'px)';
+    }
+
+    thumb.addEventListener('pointerdown', function (event) {
+      dragging = true;
+      startY = event.clientY;
+      startScroll = window.scrollY;
+      thumb.classList.add('is-dragging');
+      thumb.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    });
+
+    thumb.addEventListener('pointermove', function (event) {
+      if (!dragging) return;
+
+      var rect = rail.getBoundingClientRect();
+      var thumbHeight = thumb.offsetHeight;
+      var scrollableTrack = Math.max(1, rect.height - thumbHeight);
+      var delta = event.clientY - startY;
+      var nextScroll = startScroll + (delta / scrollableTrack) * maxScroll();
+
+      window.scrollTo(0, nextScroll);
+    });
+
+    function stopDrag(event) {
+      if (!dragging) return;
+      dragging = false;
+      thumb.classList.remove('is-dragging');
+      try { thumb.releasePointerCapture(event.pointerId); } catch (e) {}
+    }
+
+    thumb.addEventListener('pointerup', stopDrag);
+    thumb.addEventListener('pointercancel', stopDrag);
+
+    rail.addEventListener('pointerdown', function (event) {
+      if (event.target === thumb) return;
+
+      var rect = rail.getBoundingClientRect();
+      var thumbHeight = thumb.offsetHeight;
+      var y = event.clientY - rect.top - thumbHeight / 2;
+      var scrollableTrack = Math.max(1, rect.height - thumbHeight);
+      var nextScroll = (y / scrollableTrack) * maxScroll();
+
+      window.scrollTo({ top: nextScroll, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initElvenScrollbar);
+  } else {
+    initElvenScrollbar();
+  }
+})();
+</script>
+<!-- ELVEN_CUSTOM_SCROLLBAR_END -->
+
   </body>
 </html>
