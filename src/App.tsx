@@ -17,7 +17,7 @@ const navItems = [
 
 const heroStats = [
   { value: '24/7', label: 'assistant online' },
-  { value: 'Fast', label: 'Vite + React build' },
+  { value: 'Fast', label: 'fast build' },
   { value: 'TG', label: 'lead handoff' },
 ];
 
@@ -126,7 +126,7 @@ function App() {
       <div className="relative z-10">
         <Header />
 
-        <section className="relative isolate flex min-h-screen items-center px-5 pb-20 pt-32 sm:px-6 lg:px-8">
+        <section className="relative isolate flex min-h-screen items-center px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8">
           <div className="pointer-events-none absolute inset-0 -z-10">
             <div className="absolute right-[-120px] top-24 h-80 w-80 rounded-full bg-violet/20 blur-3xl" />
             <div className="absolute bottom-20 left-[-120px] h-80 w-80 rounded-full bg-emerald/20 blur-3xl" />
@@ -138,7 +138,7 @@ function App() {
                 Web · AI · Telegram funnels
               </p>
 
-              <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
+              <h1 className="max-w-4xl text-[clamp(2.65rem,12vw,4.5rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-white lg:text-7xl">
                 Websites and AI assistants with a dark fantasy edge.
               </h1>
 
@@ -147,19 +147,19 @@ function App() {
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a href="https://t.me/ElvenSyndicateStudio" className="inline-flex items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(29,242,178,.22)] transition hover:-translate-y-0.5 hover:bg-[#68ffd5]">
+                <a href="https://t.me/ElvenSyndicateStudio" className="inline-flex w-full items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(29,242,178,.22)] transition hover:-translate-y-0.5 hover:bg-[#68ffd5] sm:w-auto">
                   Discuss on Telegram
                 </a>
-                <a href="#services" className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-6 py-4 text-sm font-black text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/10">
+                <a href="#services" className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-6 py-4 text-sm font-black text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/10 sm:w-auto">
                   Explore services
                 </a>
               </div>
 
-              <div className="mt-10 grid gap-3 sm:grid-cols-3">
+              <div className="mt-10 grid grid-cols-3 gap-3">
                 {heroStats.map((item) => (
                   <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 backdrop-blur">
-                    <p className="text-2xl font-black text-white">{item.value}</p>
-                    <p className="mt-1 text-sm text-mist">{item.label}</p>
+                    <p className="text-xl font-black text-white sm:text-2xl">{item.value}</p>
+                    <p className="mt-1 text-xs text-mist sm:text-sm">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -168,7 +168,7 @@ function App() {
             <div className="relative mx-auto w-full max-w-[660px]">
               <div className="absolute -inset-6 rounded-[3rem] bg-emerald/10 blur-3xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-arcane backdrop-blur">
-                <img src={assets.hero} alt="Elven developer controlling holographic AI interfaces" className="h-full min-h-[460px] w-full object-cover object-center" width="1792" height="1024" />
+                <img src={assets.hero} alt="Elven developer controlling holographic AI interfaces" className="h-full min-h-[300px] w-full object-cover object-center sm:min-h-[420px] lg:min-h-[460px]" width="1792" height="1024" />
                 <div className="absolute inset-0 bg-gradient-to-r from-void/35 via-transparent to-void/5" />
                 <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-black/45 p-4 backdrop-blur-xl">
                   <p className="text-xs font-black uppercase tracking-[0.28em] text-emerald">Arcane AI Core</p>
@@ -179,7 +179,7 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+        <section id="about" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionLabel>About</SectionLabel>
             <div>
@@ -193,7 +193,7 @@ function App() {
           </div>
         </section>
 
-        <section id="services" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+        <section id="services" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="mb-10 max-w-2xl">
             <SectionLabel>Services</SectionLabel>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">What we craft</h2>
@@ -210,7 +210,7 @@ function App() {
           </div>
         </section>
 
-        <section id="stack" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+        <section id="stack" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur sm:p-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <SectionLabel>Stack</SectionLabel>
@@ -226,10 +226,10 @@ function App() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid items-center gap-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 backdrop-blur sm:p-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="overflow-hidden rounded-[1.5rem] border border-violet/20 bg-black/30">
-              <img src={assets.core} alt="Floating emerald crystal inside an arcane AI interface" className="h-full min-h-[320px] w-full object-cover" width="1792" height="1024" loading="lazy" />
+              <img src={assets.core} alt="Floating emerald crystal inside an arcane AI interface" className="h-full min-h-[240px] w-full object-cover sm:min-h-[320px]" width="1792" height="1024" loading="lazy" />
             </div>
             <div className="p-2 sm:p-6">
               <SectionLabel>Visual System</SectionLabel>
@@ -243,7 +243,7 @@ function App() {
           </div>
         </section>
 
-        <section id="process" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+        <section id="process" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <SectionLabel>Process</SectionLabel>
           <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
             From rough idea to production-ready digital system.
@@ -259,7 +259,7 @@ function App() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="rounded-[2rem] border border-violet/20 bg-violet/10 p-8 shadow-violet backdrop-blur sm:p-12">
             <SectionLabel>Trust</SectionLabel>
             <h2 className="mt-5 max-w-4xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -271,7 +271,7 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+        <section id="contact" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="rounded-[2rem] border border-emerald/20 bg-emerald/10 p-8 text-center shadow-arcane backdrop-blur sm:p-12">
             <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">Ready to build your digital system?</h2>
             <p className="mx-auto mt-5 max-w-2xl leading-8 text-mist">
