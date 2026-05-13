@@ -48,6 +48,25 @@ const caseStudies = [
 ];
 
 const stack = ['React', 'TypeScript', 'Vite', 'Tailwind', 'Vercel', 'Telegram', 'AI widgets', 'SEO'];
+const faqItems = [
+  {
+    question: 'Is the AI assistant real?',
+    answer: 'For now it works as a frontend demo. Later it can be connected to a real AI API, Telegram bot or CRM flow.',
+  },
+  {
+    question: 'Can this site be adapted for a real client?',
+    answer: 'Yes. The structure is made for production: hero, services, cases, process, contact flow, metadata and responsive layout.',
+  },
+  {
+    question: 'Can we add video, animations and stronger effects?',
+    answer: 'Yes. The visual system already supports fantasy-tech images. Video loops and motion effects can be added carefully later.',
+  },
+  {
+    question: 'Where do leads go?',
+    answer: 'The current CTA sends users to Telegram. Later we can add form delivery, Telegram bot messages, email or CRM integration.',
+  },
+];
+
 const process = [
   { title: 'Brief', text: 'We collect the goal, niche, references, target action and the exact feeling the website should create.' },
   { title: 'Concept', text: 'We turn the raw idea into structure: sections, offer, visual direction, CTA logic and future content placeholders.' },
@@ -521,15 +540,60 @@ function App() {
           </div>
         </section>
 
+
+        <section id="faq" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <SectionLabel>FAQ</SectionLabel>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+                Questions before the first summon.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-mist">
+                Short answers for visitors who want to understand what this project can become next.
+              </p>
+            </div>
+
+            <div className="grid gap-4">
+              {faqItems.map((item) => (
+                <article key={item.question} className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:border-emerald/35">
+                  <h3 className="text-xl font-semibold text-white">{item.question}</h3>
+                  <p className="mt-3 leading-7 text-mist">{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="contact" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="rounded-[2rem] border border-emerald/20 bg-emerald/10 p-8 text-center shadow-arcane backdrop-blur sm:p-12">
-            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">Ready to build your digital system?</h2>
-            <p className="mx-auto mt-5 max-w-2xl leading-8 text-mist">
-              Send your niche, goal, references and desired style. I’ll turn the idea into a strong website concept, clean frontend and AI-ready client flow.
-            </p>
-            <a href="https://t.me/ElvenSyndicateStudio" className="mt-8 inline-flex rounded-2xl bg-emerald px-7 py-4 font-black text-void transition hover:-translate-y-0.5 hover:bg-[#68ffd5]">
-              Contact in Telegram
-            </a>
+          <div className="grid gap-6 rounded-[2rem] border border-emerald/20 bg-emerald/10 p-6 shadow-arcane backdrop-blur sm:p-8 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="p-2 sm:p-4">
+              <SectionLabel>Contact</SectionLabel>
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+                Ready to build your digital system?
+              </h2>
+              <p className="mt-5 max-w-2xl leading-8 text-mist">
+                Send your niche, goal, references and desired style. I’ll turn the idea into a strong website concept, clean frontend and AI-ready client flow.
+              </p>
+              <a href="https://t.me/ElvenSyndicateStudio" className="mt-8 inline-flex w-full justify-center rounded-2xl bg-emerald px-7 py-4 font-black text-void transition hover:-translate-y-0.5 hover:bg-[#68ffd5] sm:w-auto">
+                Contact in Telegram
+              </a>
+            </div>
+
+            <form className="rounded-[1.75rem] border border-white/10 bg-black/25 p-5 backdrop-blur">
+              <div className="grid gap-4">
+                <label className="grid gap-2 text-sm font-bold text-white">
+                  Project type
+                  <input className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none placeholder:text-mist/60 focus:border-emerald/50" placeholder="Landing, AI assistant, portfolio..." />
+                </label>
+                <label className="grid gap-2 text-sm font-bold text-white">
+                  Main goal
+                  <textarea className="min-h-28 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none placeholder:text-mist/60 focus:border-emerald/50" placeholder="Tell me what the site should do..." />
+                </label>
+                <a href="https://t.me/ElvenSyndicateStudio" className="inline-flex justify-center rounded-2xl border border-emerald/25 bg-emerald/10 px-5 py-4 text-sm font-black text-emerald transition hover:bg-emerald hover:text-void">
+                  Send brief in Telegram
+                </a>
+              </div>
+            </form>
           </div>
         </section>
 
