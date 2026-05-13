@@ -176,6 +176,146 @@ function SectionLabel({ children }: { children: string }) {
   return <p className="text-sm font-black uppercase tracking-[0.34em] text-emerald">{children}</p>;
 }
 
+
+function AssistantWidget() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [draft, setDraft] = useState('');
+  const [messages, setMessages] = useState([
+    {
+      role: 'assistant',
+      text: 'Hi. I am the Elven Syndicate assistant. Tell me what kind of website or AI flow you want to build.',
+    },
+  ]);
+
+  const quickPrompts = [
+    'Website with AI assistant',
+    'Telegram lead funnel',
+    'Portfolio-grade landing',
+  ];
+
+  const sendMessage = (text?: string) => {
+    const value = (text ?? draft).trim();
+
+    if (!value) return;
+
+    setMessages((current) => [
+      ...current,
+      { role: 'user', text: value },
+      {
+        role: 'assistant',
+        text: 'Good. I would clarify your niche, target action, style references, deadline and the way leads should reach Telegram.',
+      },
+    ]);
+
+    setDraft('');
+  };
+
+  return (
+    <div className="fixed bottom-5 right-5 z-40">
+      <div
+        className={`fixed bottom-24 left-4 right-4 mx-auto max-w-md overflow-hidden rounded-[1.75rem] border border-white/10 bg-obsidian/95 shadow-violet backdrop-blur-2xl transition duration-300 md:left-auto md:right-5 md:w-[390px] ${
+          isOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'
+        }`}
+      >
+        <div className="border-b border-white/10 bg-white/[0.04] p-5">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-2xl border border-emerald/35">
+                <img src={assets.logo} alt="" className="h-full w-full object-cover" width="44" height="44" />
+              </span>
+              <div>
+                <p className="text-sm font-black text-white">AI assistant</p>
+                <p className="text-xs text-mist">Elven Syndicate Studio</p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              className="grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-white/[0.06] text-white transition hover:bg-white/12"
+              aria-label="Close assistant"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+
+        <div className="max-h-[360px] space-y-3 overflow-y-auto p-5">
+          {messages.map((message, index) => (
+            <div
+              key={`${message.role}-${index}`}
+              className={`rounded-2xl border p-4 text-sm leading-6 ${
+                message.role === 'assistant'
+                  ? 'border-emerald/20 bg-emerald/10 text-emerald'
+                  : 'ml-8 border-white/10 bg-white/[0.055] text-white'
+              }`}
+            >
+              {message.text}
+            </div>
+          ))}
+
+          <div className="flex flex-wrap gap-2 pt-1">
+            {quickPrompts.map((prompt) => (
+              <button
+                key={prompt}
+                type="button"
+                onClick={() => sendMessage(prompt)}
+                className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-xs font-bold text-mist transition hover:border-emerald/35 hover:text-white"
+              >
+                {prompt}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <form
+          className="border-t border-white/10 p-4"
+          onSubmit={(event) => {
+            event.preventDefault();
+            sendMessage();
+          }}
+        >
+          <label className="sr-only" htmlFor="assistant-message">Message</label>
+          <div className="flex gap-2">
+            <input
+              id="assistant-message"
+              value={draft}
+              onChange={(event) => setDraft(event.target.value)}
+              placeholder="Describe your project..."
+              className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none transition placeholder:text-mist/60 focus:border-emerald/50"
+            />
+            <button
+              type="submit"
+              className="rounded-2xl bg-emerald px-4 py-3 text-sm font-black text-void transition hover:bg-[#68ffd5]"
+            >
+              Send
+            </button>
+          </div>
+
+          <a
+            href="https://t.me/ElvenSyndicateStudio"
+            className="mt-3 inline-flex w-full justify-center rounded-2xl border border-emerald/25 bg-emerald/10 px-4 py-3 text-sm font-black text-emerald transition hover:bg-emerald hover:text-void"
+          >
+            Continue in Telegram
+          </a>
+        </form>
+      </div>
+
+      <button
+        type="button"
+        onClick={() => setIsOpen((value) => !value)}
+        className="flex items-center gap-3 rounded-full border border-emerald/30 bg-emerald px-5 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(29,242,178,.28)] transition hover:-translate-y-0.5 hover:bg-[#68ffd5]"
+        aria-label="Open AI assistant"
+        aria-expanded={isOpen}
+      >
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-void/15 text-xs">AI</span>
+        Ask assistant
+      </button>
+    </div>
+  );
+}
+
+
 function App() {
   return (
     <main className="min-h-screen overflow-hidden bg-void text-parchment">
@@ -350,6 +490,8 @@ function App() {
           <p className="mt-2">Built by Sergey · Web & AI Development</p>
           <p className="mt-2">Crafted with code, runes and artificial intelligence.</p>
         </footer>
+
+        <AssistantWidget />
       </div>
     </main>
   );
