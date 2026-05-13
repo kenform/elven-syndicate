@@ -313,7 +313,7 @@ const content = {
     metaTitle: 'Elven Syndicate — студия сайтов и AI',
     metaDescription: 'Премиальные сайты, AI-ассистенты и Telegram-воронки от Elven Syndicate.',
     nav: [
-      { label: 'О проекте', href: '#about' },
+      { label: 'Проект', href: '#about' },
       { label: 'Услуги', href: '#services' },
       { label: 'Системы', href: '#business' },
       { label: 'Витрина', href: '#showcase' },
@@ -627,7 +627,7 @@ function Header({
     <>
       <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-void/82 backdrop-blur-2xl">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-          <a href="#" onClick={closeMenu} className="group inline-flex items-center gap-3" aria-label="Elven Syndicate home">
+          <a href="#" onClick={closeMenu} className="group inline-flex shrink-0 items-center gap-3" aria-label="Elven Syndicate home">
             <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-emerald/40 bg-white/[0.04] shadow-arcane">
               <img src={assets.logo} alt="" className="h-full w-full object-cover" width="48" height="48" />
             </span>
@@ -637,22 +637,22 @@ function Header({
             </span>
           </a>
 
-          <nav className="hidden items-center gap-5 lg:gap-7 md:flex" aria-label="Main navigation">
+          <nav className="hidden items-center gap-1 xl:flex 2xl:gap-3" aria-label="Main navigation">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                className="group relative -my-3 inline-flex rounded-full px-3 py-3 text-xs font-semibold text-mist transition-all duration-300 hover:bg-white/[0.045] hover:text-white lg:text-sm"
+                className="group relative -my-3 inline-flex whitespace-nowrap rounded-full px-2.5 py-3 text-[0.78rem] font-semibold leading-none text-mist transition-all duration-300 hover:bg-white/[0.045] hover:text-white 2xl:px-3 2xl:text-sm"
               >
                 {item.label}
-                <span className="absolute bottom-1 left-3 h-px w-[calc(100%-1.5rem)] origin-left scale-x-0 rounded-full bg-[#7ee3e1] shadow-[0_0_14px_rgba(126,227,225,.32)] transition-transform duration-300 group-hover:scale-x-100" />
+                <span className="absolute bottom-1 left-2.5 h-px w-[calc(100%-1.25rem)] origin-left scale-x-0 rounded-full bg-[#7ee3e1] shadow-[0_0_14px_rgba(126,227,225,.32)] transition-transform duration-300 group-hover:scale-x-100 2xl:left-3 2xl:w-[calc(100%-1.5rem)]" />
               </a>
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden shrink-0 items-center gap-2 xl:flex">
             <LanguageToggle lang={lang} setLang={setLang} />
             <a href="https://t.me/ElvenSyndicateStudio" className="rounded-full border border-emerald/35 bg-emerald/10 px-5 py-3 text-sm font-bold text-emerald transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:bg-emerald hover:text-void hover:shadow-[0_0_34px_rgba(70,188,186,.18)]">
               {cta}
@@ -661,7 +661,7 @@ function Header({
 
           <button
             type="button"
-            className="relative z-[110] grid h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] text-white shadow-violet transition hover:bg-white/12 md:hidden"
+            className="relative z-[110] grid h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] text-white shadow-violet transition hover:bg-white/12 xl:hidden"
             aria-label={isMenuOpen ? ui.closeMenu : ui.openMenu}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -678,7 +678,7 @@ function Header({
 
       <div
         id="mobile-menu"
-        className={`fixed inset-0 z-[100] overflow-y-auto bg-void px-5 pb-8 pt-24 transition duration-300 md:hidden ${
+        className={`fixed inset-0 z-[100] overflow-y-auto bg-void px-5 pb-8 pt-24 transition duration-300 xl:hidden ${
           isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
         aria-hidden={!isMenuOpen}
