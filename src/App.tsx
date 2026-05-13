@@ -70,7 +70,6 @@ const caseStudies = [
   },
 ];
 
-const stack = ['React', 'TypeScript', 'Vite', 'Tailwind', 'Vercel', 'Telegram', 'AI widgets', 'SEO'];
 const faqItems = [
   {
     question: 'Is the AI assistant real?',
@@ -128,8 +127,8 @@ function Header() {
               <img src={assets.logo} alt="" className="h-full w-full object-cover" width="48" height="48" />
             </span>
             <span className="leading-tight">
-              <span className="block text-sm font-semibold tracking-[0.25em] text-white">ELVEN</span>
-              <span className="block text-xs uppercase tracking-[0.31em] text-mist">Syndicate</span>
+              <span className="block text-xs font-black tracking-[0.22em] text-white sm:text-sm">ELVEN SYNDICATE</span>
+              <span className="block text-[0.65rem] uppercase tracking-[0.22em] text-mist">Web & AI Studio</span>
             </span>
           </a>
 
@@ -183,8 +182,8 @@ function Header() {
                 <img src={assets.logo} alt="" className="h-full w-full object-cover" width="48" height="48" />
               </span>
               <div>
-                <p className="text-sm font-semibold tracking-[0.25em] text-white">ELVEN</p>
-                <p className="text-xs uppercase tracking-[0.31em] text-mist">Syndicate</p>
+                <p className="text-xs font-black tracking-[0.22em] text-white">ELVEN SYNDICATE</p>
+                <p className="text-[0.65rem] uppercase tracking-[0.22em] text-mist">Web & AI Studio</p>
               </div>
             </div>
 
@@ -259,10 +258,10 @@ function FAQAccordionItem({
         aria-expanded={isOpen}
       >
         <span className="text-lg font-semibold text-white sm:text-xl">{item.question}</span>
-        <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/15 bg-white/[0.08] text-2xl font-black transition duration-300 ${
-          isOpen ? 'rotate-45 border-emerald/40 bg-emerald/15 text-white shadow-[0_0_30px_rgba(29,242,178,.16)]' : 'text-white hover:border-emerald/35 hover:text-emerald'
+        <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-full border text-2xl font-black transition duration-300 ${
+          isOpen ? 'border-emerald/40 bg-white/[0.10] text-white shadow-[0_0_30px_rgba(29,242,178,.16)]' : 'border-white/15 bg-white/[0.08] text-white hover:border-emerald/35 hover:text-emerald'
         }`}>
-          +
+          {isOpen ? '×' : '+'}
         </span>
       </button>
 
@@ -519,29 +518,41 @@ function App() {
 
 
         <section id="business" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr]">
-            <div>
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="lg:sticky lg:top-28">
               <SectionLabel>Business Systems</SectionLabel>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-                What Elven Syndicate can do for a digital business.
+                A website that behaves like a small sales system.
               </h2>
               <p className="mt-5 text-lg leading-8 text-mist">
-                Not just decoration. The site is designed as a system: presentation, trust, assistant, lead capture and Telegram handoff.
+                The goal is not just atmosphere. Each layer should help a visitor understand the offer, trust the project and move into Telegram with context.
               </p>
+
+              <div className="mt-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
+                <p className="text-sm font-black uppercase tracking-[0.24em] text-gold">Core idea</p>
+                <p className="mt-3 leading-7 text-mist">
+                  Visual identity + clear offer + AI demo + Telegram handoff = a memorable first version of a real web product.
+                </p>
+              </div>
             </div>
 
-            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] backdrop-blur">
+            <div className="grid gap-4">
               {businessItems.map((item, index) => (
-                <article key={item.title} className="grid gap-4 border-b border-white/10 p-6 last:border-b-0 sm:grid-cols-[0.86fr_1.14fr] sm:p-7">
-                  <div>
-                    <p className="mb-3 text-sm font-black text-gold">0{index + 1}</p>
-                    <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
-                  </div>
-                  <div>
-                    <span className="inline-flex rounded-full border border-emerald/25 bg-emerald/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-emerald">
-                      {item.label}
-                    </span>
-                    <p className="mt-4 leading-7 text-mist">{item.text}</p>
+                <article key={item.title} className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-emerald/30">
+                  <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-emerald/10 blur-3xl transition group-hover:bg-violet/15" />
+                  <div className="relative grid gap-5 sm:grid-cols-[4.5rem_1fr]">
+                    <div className="grid h-16 w-16 place-items-center rounded-2xl border border-gold/25 bg-gold/10 text-lg font-black text-gold">
+                      0{index + 1}
+                    </div>
+                    <div>
+                      <div className="mb-4 flex flex-wrap items-center gap-3">
+                        <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
+                        <span className="rounded-full border border-emerald/25 bg-emerald/10 px-3 py-1.5 text-[0.65rem] font-black uppercase tracking-[0.22em] text-emerald">
+                          {item.label}
+                        </span>
+                      </div>
+                      <p className="leading-7 text-mist">{item.text}</p>
+                    </div>
                   </div>
                 </article>
               ))}
@@ -550,16 +561,53 @@ function App() {
         </section>
 
         <section id="stack" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur sm:p-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <SectionLabel>Stack</SectionLabel>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">Modern stack, clean delivery.</h2>
+          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] backdrop-blur">
+            <div className="grid gap-8 border-b border-white/10 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <div>
+                <SectionLabel>Stack</SectionLabel>
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+                  Clean frontend, fast deploy, AI-ready structure.
+                </h2>
+              </div>
+              <p className="max-w-2xl text-lg leading-8 text-mist lg:justify-self-end">
+                The current build stays lightweight: React for interface, Tailwind for visual system, Vercel for deployment and room for future API integrations.
+              </p>
             </div>
-            <div className="flex flex-wrap content-start gap-3">
-              {stack.map((item) => (
-                <span key={item} className="rounded-full border border-white/10 bg-black/25 px-5 py-3 text-sm font-bold text-white">
-                  {item}
-                </span>
+
+            <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  title: 'Interface',
+                  items: ['React', 'TypeScript', 'Tailwind'],
+                  text: 'Reusable sections, responsive layout and clean component logic.',
+                },
+                {
+                  title: 'Performance',
+                  items: ['Vite', 'Lazy media', 'SEO'],
+                  text: 'Fast build, simple assets and metadata ready for production.',
+                },
+                {
+                  title: 'Deployment',
+                  items: ['GitHub', 'Vercel', 'Preview'],
+                  text: 'Every push can become a new production or preview deployment.',
+                },
+                {
+                  title: 'AI layer',
+                  items: ['AI demo', 'Telegram', 'Future API'],
+                  text: 'The visible assistant can later connect to real AI and handoff flows.',
+                },
+              ].map((group) => (
+                <article key={group.title} className="border-b border-white/10 p-6 last:border-b-0 md:border-r md:last:border-r-0 lg:border-b-0">
+                  <h3 className="text-2xl font-semibold text-white">{group.title}</h3>
+                  <p className="mt-4 min-h-20 leading-7 text-mist">{group.text}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span key={item} className="rounded-full border border-white/10 bg-black/25 px-3 py-2 text-xs font-bold text-white">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </article>
               ))}
             </div>
           </div>
@@ -609,29 +657,38 @@ function App() {
 
 
         <section id="process" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <SectionLabel>Process</SectionLabel>
-          <h2 className="mt-4 max-w-5xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-            From raw idea to production — six careful steps.
-          </h2>
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <SectionLabel>Process</SectionLabel>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+                From idea to launch without chaos.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-mist">
+                A more compact workflow: every step has a clear job, so the project does not turn into random blocks and last-minute fixes.
+              </p>
+            </div>
 
-          <div className="relative mt-12">
-            <div className="absolute bottom-0 left-5 top-0 w-px bg-gradient-to-b from-emerald via-violet to-transparent lg:left-1/2" />
+            <div className="relative">
+              <div className="absolute bottom-8 left-6 top-8 w-px bg-gradient-to-b from-emerald via-violet to-transparent" />
 
-            {process.map((item, index) => (
-              <article key={item.title} className="relative py-8 lg:grid lg:grid-cols-2 lg:gap-12">
-                <div className="absolute left-5 top-12 h-5 w-5 -translate-x-1/2 rounded-full border border-emerald/40 bg-void shadow-[0_0_28px_rgba(29,242,178,.35)] lg:left-1/2" />
-
-                <div className={`ml-14 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-emerald/35 ${
-                  index % 2 === 0 ? 'lg:mr-10 lg:text-right' : 'lg:col-start-2 lg:ml-10'
-                }`}>
-                  <p className="text-xs font-black uppercase tracking-[0.28em] text-gold">
-                    Step {String(index + 1).padStart(2, '0')}
-                  </p>
-                  <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white">{item.title}</h3>
-                  <p className="mt-4 leading-7 text-mist">{item.text}</p>
-                </div>
-              </article>
-            ))}
+              <div className="grid gap-4">
+                {process.map((item, index) => (
+                  <article key={item.title} className="group relative pl-16">
+                    <div className="absolute left-6 top-7 h-4 w-4 -translate-x-1/2 rounded-full border border-emerald/45 bg-void shadow-[0_0_24px_rgba(29,242,178,.28)]" />
+                    <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 group-hover:-translate-y-1 group-hover:border-emerald/30">
+                      <div className="mb-4 flex flex-wrap items-center gap-3">
+                        <span className="text-xs font-black uppercase tracking-[0.28em] text-gold">
+                          Step {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="h-px flex-1 bg-white/10" />
+                      </div>
+                      <h3 className="text-2xl font-semibold tracking-tight text-white">{item.title}</h3>
+                      <p className="mt-3 leading-7 text-mist">{item.text}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -726,33 +783,35 @@ function App() {
         </section>
 
         <footer className="border-t border-white/10 px-5 py-12 text-sm text-mist sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.8fr_1fr]">
-            <div>
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_1fr_1fr]">
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 backdrop-blur">
               <div className="flex items-center gap-4">
                 <img src={assets.logo} alt="" className="h-16 w-16 rounded-2xl object-cover shadow-arcane" width="64" height="64" loading="lazy" />
                 <div>
-                  <p className="text-sm font-semibold tracking-[0.25em] text-white">ELVEN</p>
-                  <p className="text-xs uppercase tracking-[0.31em] text-mist">Syndicate</p>
+                  <p className="text-xs font-black tracking-[0.22em] text-white">ELVEN SYNDICATE</p>
+                  <p className="text-[0.65rem] uppercase tracking-[0.22em] text-mist">Web & AI Studio</p>
                 </div>
               </div>
-              <p className="mt-6 max-w-md leading-7">
+              <p className="mt-6 leading-7">
                 Fantasy-tech web and AI studio concept. Built as a portfolio-grade website with room for real assistant logic, cases and automation.
               </p>
             </div>
 
-            <div>
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 backdrop-blur">
               <p className="font-black uppercase tracking-[0.25em] text-emerald">Navigation</p>
-              <div className="mt-5 grid gap-3">
-                {navItems.map((item) => (
-                  <a key={item.href} href={item.href} className="text-mist transition hover:text-white">
-                    {item.label}
-                  </a>
-                ))}
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                <a href="#about" className="text-mist transition hover:text-white">About</a>
+                <a href="#services" className="text-mist transition hover:text-white">Services</a>
+                <a href="#business" className="text-mist transition hover:text-white">Systems</a>
+                <a href="#stack" className="text-mist transition hover:text-white">Stack</a>
+                <a href="#cases" className="text-mist transition hover:text-white">Cases</a>
+                <a href="#process" className="text-mist transition hover:text-white">Process</a>
                 <a href="#faq" className="text-mist transition hover:text-white">FAQ</a>
+                <a href="#contact" className="text-mist transition hover:text-white">Contact</a>
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 backdrop-blur">
               <p className="font-black uppercase tracking-[0.25em] text-gold">Build status</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {['React', 'TypeScript', 'Vercel', 'AI demo', 'Telegram'].map((item) => (
@@ -767,10 +826,10 @@ function App() {
             </div>
           </div>
 
-          <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-2 border-t border-white/10 pt-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-            <p>© 2026 Elven Syndicate. All rights reserved.</p>
-            <p>Built by Sergey · Web & AI Development</p>
-            <p>Crafted with code, runes and artificial intelligence.</p>
+          <div className="mx-auto mt-8 grid max-w-7xl gap-3 border-t border-white/10 pt-6 text-center sm:grid-cols-3 sm:text-left">
+            <p>© 2026 Elven Syndicate.</p>
+            <p className="sm:text-center">Built by Sergey · Web & AI Development</p>
+            <p className="sm:text-right">Crafted with code, runes and artificial intelligence.</p>
           </div>
         </footer>
 
