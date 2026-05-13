@@ -215,6 +215,46 @@ function SectionLabel({ children }: { children: string }) {
 }
 
 
+
+function FAQAccordionItem({
+  item,
+  index,
+}: {
+  item: { question: string; answer: string };
+  index: number;
+}) {
+  const [isOpen, setIsOpen] = useState(index === 0);
+
+  return (
+    <article className={`overflow-hidden rounded-[1.75rem] border bg-white/[0.04] backdrop-blur transition duration-300 ${
+      isOpen ? 'border-emerald/35 shadow-[0_0_50px_rgba(29,242,178,.08)]' : 'border-white/10 hover:border-white/20'
+    }`}>
+      <button
+        type="button"
+        onClick={() => setIsOpen((value) => !value)}
+        className="flex w-full items-center justify-between gap-5 px-6 py-6 text-left"
+        aria-expanded={isOpen}
+      >
+        <span className="text-lg font-semibold text-white sm:text-xl">{item.question}</span>
+        <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-2xl border border-white/10 bg-white/[0.06] text-xl font-black text-emerald transition duration-300 ${
+          isOpen ? 'rotate-45 bg-emerald text-void' : ''
+        }`}>
+          +
+        </span>
+      </button>
+
+      <div className={`grid transition-all duration-300 ease-out ${
+        isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+      }`}>
+        <div className="overflow-hidden">
+          <p className="px-6 pb-6 leading-7 text-mist">{item.answer}</p>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+
 function AssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [draft, setDraft] = useState('');
@@ -553,12 +593,9 @@ function App() {
               </p>
             </div>
 
-            <div className="grid gap-4">
-              {faqItems.map((item) => (
-                <article key={item.question} className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:border-emerald/35">
-                  <h3 className="text-xl font-semibold text-white">{item.question}</h3>
-                  <p className="mt-3 leading-7 text-mist">{item.answer}</p>
-                </article>
+            <div className="grid gap-3">
+              {faqItems.map((item, index) => (
+                <FAQAccordionItem key={item.question} item={item} index={index} />
               ))}
             </div>
           </div>
