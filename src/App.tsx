@@ -59,57 +59,104 @@ function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-void/78 backdrop-blur-2xl">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-        <a href="#" onClick={closeMenu} className="group inline-flex items-center gap-3" aria-label="Elven Syndicate home">
-          <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-emerald/40 bg-white/[0.04] shadow-arcane">
-            <img src={assets.logo} alt="" className="h-full w-full object-cover" width="48" height="48" />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-sm font-semibold tracking-[0.25em] text-white">ELVEN</span>
-            <span className="block text-xs uppercase tracking-[0.31em] text-mist">Syndicate</span>
-          </span>
-        </a>
+    <>
+      <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-void/82 backdrop-blur-2xl">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
+          <a href="#" onClick={closeMenu} className="group inline-flex items-center gap-3" aria-label="Elven Syndicate home">
+            <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-emerald/40 bg-white/[0.04] shadow-arcane">
+              <img src={assets.logo} alt="" className="h-full w-full object-cover" width="48" height="48" />
+            </span>
+            <span className="leading-tight">
+              <span className="block text-sm font-semibold tracking-[0.25em] text-white">ELVEN</span>
+              <span className="block text-xs uppercase tracking-[0.31em] text-mist">Syndicate</span>
+            </span>
+          </a>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm font-semibold text-mist transition hover:text-white">
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <a href="https://t.me/ElvenSyndicateStudio" className="hidden rounded-full border border-emerald/35 bg-emerald/10 px-5 py-3 text-sm font-bold text-emerald transition hover:bg-emerald hover:text-void md:inline-flex">
-          Start a project
-        </a>
-
-        <button type="button" className="relative z-[90] grid h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/[0.06] text-white shadow-violet transition hover:bg-white/10 md:hidden" aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} aria-expanded={isMenuOpen} aria-controls="mobile-menu" onClick={() => setIsMenuOpen((value) => !value)}>
-          <span className="relative h-4 w-6">
-            <span className={`absolute left-0 top-0 h-0.5 w-6 rounded-full bg-current transition duration-300 ${isMenuOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
-            <span className={`absolute left-0 top-[7px] h-0.5 w-6 rounded-full bg-current transition duration-300 ${isMenuOpen ? 'scale-x-0 opacity-0' : ''}`} />
-            <span className={`absolute left-0 top-[14px] h-0.5 w-6 rounded-full bg-current transition duration-300 ${isMenuOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
-          </span>
-        </button>
-      </div>
-
-      <div className={`fixed inset-0 z-[70] bg-void/95 px-5 pt-24 backdrop-blur-2xl transition duration-300 md:hidden ${isMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'}`} onClick={closeMenu} aria-hidden={!isMenuOpen}>
-        <div id="mobile-menu" className={`mx-auto max-w-md rounded-[2rem] border border-white/10 bg-obsidian/95 p-5 shadow-violet transition duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'}`} onClick={(event) => event.stopPropagation()}>
-          <nav className="grid gap-2" aria-label="Mobile navigation">
+          <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} onClick={closeMenu} className="rounded-2xl px-4 py-4 text-base font-bold text-white transition hover:bg-white/10">
+              <a key={item.href} href={item.href} className="text-sm font-semibold text-mist transition hover:text-white">
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <a href="https://t.me/ElvenSyndicateStudio" onClick={closeMenu} className="mt-5 inline-flex w-full justify-center rounded-2xl bg-emerald px-5 py-4 text-sm font-black text-void transition hover:bg-[#68ffd5]">
+          <a href="https://t.me/ElvenSyndicateStudio" className="hidden rounded-full border border-emerald/35 bg-emerald/10 px-5 py-3 text-sm font-bold text-emerald transition hover:bg-emerald hover:text-void md:inline-flex">
             Start a project
           </a>
+
+          <button
+            type="button"
+            className="relative z-[110] grid h-12 w-12 place-items-center rounded-2xl border border-white/15 bg-white/[0.07] text-white shadow-violet transition hover:bg-white/12 md:hidden"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setIsMenuOpen((value) => !value)}
+          >
+            <span className="relative h-4 w-6">
+              <span className={`absolute left-0 top-0 h-0.5 w-6 rounded-full bg-current transition duration-300 ${isMenuOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
+              <span className={`absolute left-0 top-[7px] h-0.5 w-6 rounded-full bg-current transition duration-300 ${isMenuOpen ? 'scale-x-0 opacity-0' : ''}`} />
+              <span className={`absolute left-0 top-[14px] h-0.5 w-6 rounded-full bg-current transition duration-300 ${isMenuOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <div
+        id="mobile-menu"
+        className={`fixed inset-0 z-[100] overflow-y-auto bg-void px-5 pb-8 pt-24 transition duration-300 md:hidden ${
+          isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        aria-hidden={!isMenuOpen}
+      >
+        <div className="pointer-events-none absolute inset-0">
+          <img src={assets.background} alt="" className="h-full w-full object-cover opacity-25" width="1792" height="1024" />
+          <div className="absolute inset-0 bg-gradient-to-b from-void via-void/95 to-void/90" />
+          <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-violet/25 blur-3xl" />
+          <div className="absolute bottom-16 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald/20 blur-3xl" />
+        </div>
+
+        <div className={`relative mx-auto max-w-md transition duration-300 ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
+          <div className="mb-7 flex items-center gap-3">
+            <span className="grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-emerald/40 bg-white/[0.04] shadow-arcane">
+              <img src={assets.logo} alt="" className="h-full w-full object-cover" width="48" height="48" />
+            </span>
+            <div>
+              <p className="text-sm font-semibold tracking-[0.25em] text-white">ELVEN</p>
+              <p className="text-xs uppercase tracking-[0.31em] text-mist">Syndicate</p>
+            </div>
+          </div>
+
+          <nav className="grid gap-3" aria-label="Mobile navigation">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className="group flex items-center justify-between rounded-3xl border border-white/10 bg-white/[0.055] px-5 py-5 text-lg font-black text-white backdrop-blur-xl transition hover:border-emerald/35 hover:bg-emerald/10"
+              >
+                <span>{item.label}</span>
+                <span className="text-emerald transition group-hover:translate-x-1">→</span>
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href="https://t.me/ElvenSyndicateStudio"
+            onClick={closeMenu}
+            className="mt-6 inline-flex w-full items-center justify-center rounded-3xl bg-emerald px-6 py-5 text-base font-black text-void shadow-[0_0_50px_rgba(29,242,178,.22)] transition hover:bg-[#68ffd5]"
+          >
+            Start a project
+          </a>
+
+          <p className="mx-auto mt-6 max-w-xs text-center text-sm leading-6 text-mist">
+            Crafted with code, runes and artificial intelligence.
+          </p>
         </div>
       </div>
-    </header>
+    </>
   );
 }
+
 
 function SectionLabel({ children }: { children: string }) {
   return <p className="text-sm font-black uppercase tracking-[0.34em] text-emerald">{children}</p>;
