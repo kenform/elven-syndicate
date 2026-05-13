@@ -55,6 +55,7 @@ const content = {
       { label: 'Systems', href: '#business' },
       { label: 'Process', href: '#process' },
       { label: 'FAQ', href: '#faq' },
+      { label: 'Portfolio', href: 'https://kenform.ru' },
       { label: 'Contact', href: '#contact' },
     ],
     hero: {
@@ -84,25 +85,25 @@ const content = {
     services: [
       {
         title: 'Premium websites',
-        icon: '✦',
+        icon: 'WEB',
         label: 'Landing',
         text: 'Modern responsive websites with a strong first screen, clear offer, polished sections and a path toward a real request.',
       },
       {
         title: 'AI sales assistants',
-        icon: '◇',
+        icon: 'AI',
         label: 'AI',
         text: 'Assistant interfaces that explain the offer, ask the right questions and prepare the client before the Telegram conversation.',
       },
       {
         title: 'Telegram funnels',
-        icon: '↗',
+        icon: 'TG',
         label: 'Flow',
         text: 'A clean route from attention to contact: CTA, short qualification and a warmer message instead of an empty “hello”.',
       },
       {
         title: 'Brand systems',
-        icon: '◈',
+        icon: 'ID',
         label: 'Identity',
         text: 'Visual language, structure and reusable sections that make the project feel like a premium studio product.',
       },
@@ -316,6 +317,7 @@ const content = {
       { label: 'Системы', href: '#business' },
       { label: 'Процесс', href: '#process' },
       { label: 'FAQ', href: '#faq' },
+      { label: 'Портфолио', href: 'https://kenform.ru' },
       { label: 'Контакты', href: '#contact' },
     ],
     hero: {
@@ -345,25 +347,25 @@ const content = {
     services: [
       {
         title: 'Премиальные сайты',
-        icon: '✦',
+        icon: 'WEB',
         label: 'Landing',
         text: 'Современные адаптивные сайты с сильным первым экраном, понятным оффером, аккуратными секциями и маршрутом к заявке.',
       },
       {
         title: 'AI-продавцы',
-        icon: '◇',
+        icon: 'AI',
         label: 'AI',
         text: 'Интерфейсы ассистентов, которые объясняют услугу, задают правильные вопросы и подготавливают клиента до перехода в Telegram.',
       },
       {
         title: 'Telegram-воронки',
-        icon: '↗',
+        icon: 'TG',
         label: 'Flow',
         text: 'Чистый путь от интереса к контакту: CTA, быстрая квалификация и тёплое сообщение вместо пустого “привет”.',
       },
       {
         title: 'Бренд-системы',
-        icon: '◈',
+        icon: 'ID',
         label: 'Identity',
         text: 'Визуальный язык, структура и переиспользуемые секции, которые делают проект похожим на продукт сильной студии.',
       },
@@ -635,8 +637,15 @@ function Header({
 
           <nav className="hidden items-center gap-5 lg:gap-7 md:flex" aria-label="Main navigation">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="text-xs font-semibold text-mist transition hover:text-white lg:text-sm">
+              <a
+                key={item.href}
+                href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+                className="group relative text-xs font-semibold text-mist transition duration-300 hover:text-white lg:text-sm"
+              >
                 {item.label}
+                <span className="absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 rounded-full bg-gradient-to-r from-gold via-violet to-emerald transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             ))}
           </nav>
@@ -713,6 +722,8 @@ function Header({
               <a
                 key={item.href}
                 href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : undefined}
+                rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
                 onClick={closeMenu}
                 className="group flex items-center justify-between rounded-3xl border border-white/10 bg-white/[0.055] px-5 py-5 text-lg font-black text-white backdrop-blur-xl transition hover:border-emerald/35 hover:bg-emerald/10"
               >
@@ -725,7 +736,7 @@ function Header({
           <a
             href="https://t.me/ElvenSyndicateStudio"
             onClick={closeMenu}
-            className="mt-6 inline-flex w-full items-center justify-center rounded-3xl bg-emerald px-6 py-5 text-base font-black text-void shadow-[0_0_50px_rgba(29,242,178,.22)] transition hover:bg-[#68ffd5]"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-3xl bg-emerald px-6 py-5 text-base font-black text-void shadow-[0_0_50px_rgba(50,214,178,.22)] transition hover:bg-[#74e6cf]"
           >
             {cta}
           </a>
@@ -741,7 +752,7 @@ function FAQAccordionItem({ item, index }: { item: FAQItem; index: number }) {
   return (
     <article
       className={`overflow-hidden rounded-[1.75rem] border bg-white/[0.04] backdrop-blur premium-focus-ring ${
-        isOpen ? 'border-emerald/35 shadow-[0_0_50px_rgba(29,242,178,.08)]' : 'border-white/10 hover:border-white/20'
+        isOpen ? 'border-emerald/35 shadow-[0_0_50px_rgba(50,214,178,.08)]' : 'border-white/10 hover:border-white/20'
       }`}
     >
       <button
@@ -752,16 +763,16 @@ function FAQAccordionItem({ item, index }: { item: FAQItem; index: number }) {
       >
         <span className="text-lg font-semibold text-white sm:text-xl">{item.question}</span>
         <span
-          className={`relative grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            isOpen ? 'border-emerald/45 bg-white/[0.10] shadow-[0_0_30px_rgba(29,242,178,.16)]' : 'border-white/15 bg-white/[0.08] hover:border-emerald/35'
+          className={`relative grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isOpen ? 'border-emerald/45 bg-white/[0.10] shadow-[0_0_30px_rgba(50,214,178,.16)]' : 'border-white/15 bg-white/[0.08] hover:border-emerald/35'
           }`}
         >
-          <span className={`absolute h-0.5 w-5 rounded-full bg-white transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? 'rotate-45' : 'rotate-0'}`} />
-          <span className={`absolute h-0.5 w-5 rounded-full bg-white transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? '-rotate-45' : 'rotate-90'}`} />
+          <span className={`absolute h-0.5 w-5 rounded-full bg-white transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'rotate-45' : 'rotate-0'}`} />
+          <span className={`absolute h-0.5 w-5 rounded-full bg-white transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? '-rotate-45' : 'rotate-90'}`} />
         </span>
       </button>
 
-      <div className={`grid transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+      <div className={`grid transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
         <div className="overflow-hidden">
           <p className="px-6 pb-6 leading-7 text-mist">{item.answer}</p>
         </div>
@@ -823,7 +834,7 @@ function ContactBrief({ copy, lang }: { copy: ContactCopy; lang: Lang }) {
 
         <button
           type="submit"
-          className="elven-cta inline-flex justify-center rounded-2xl bg-gradient-to-r from-[#c7a968] via-[#8b5cf6] to-[#1df2b2] px-5 py-4 text-sm font-black text-void transition duration-300 hover:shadow-[0_0_42px_rgba(139,92,246,.22)]"
+          className="elven-cta inline-flex justify-center rounded-2xl bg-gradient-to-r from-[#b89a5f] via-[#6d55d8] to-[#32d6b2] px-5 py-4 text-sm font-black text-void transition duration-300 hover:shadow-[0_0_42px_rgba(139,92,246,.22)]"
         >
           {copied ? copy.copied : copy.submit}
         </button>
@@ -950,7 +961,7 @@ function AssistantWidget({
               placeholder={copy.placeholder}
               className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none transition placeholder:text-mist/60 focus:border-emerald/50"
             />
-            <button type="submit" className="rounded-2xl bg-emerald px-4 py-3 text-sm font-black text-void transition hover:bg-[#68ffd5]">
+            <button type="submit" className="rounded-2xl bg-emerald px-4 py-3 text-sm font-black text-void transition hover:bg-[#74e6cf]">
               {copy.send}
             </button>
           </div>
@@ -964,7 +975,7 @@ function AssistantWidget({
       <button
         type="button"
         onClick={() => setIsOpen((value) => !value)}
-        className="flex items-center gap-3 rounded-full border border-emerald/30 bg-emerald px-5 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(29,242,178,.28)] transition hover:bg-[#68ffd5]"
+        className="flex items-center gap-3 rounded-full border border-emerald/30 bg-emerald px-5 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(50,214,178,.28)] transition hover:bg-[#74e6cf]"
         aria-label="Open AI assistant"
         aria-expanded={isOpen}
       >
@@ -1023,7 +1034,7 @@ function App() {
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta inline-flex w-full items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(29,242,178,.22)] transition hover:bg-[#68ffd5] sm:w-auto">
+                <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta inline-flex w-full items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(50,214,178,.22)] transition hover:bg-[#74e6cf] sm:w-auto">
                   {copy.hero.primary}
                 </a>
                 <a href="#services" className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-6 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white/10 sm:w-auto">
@@ -1080,7 +1091,7 @@ function App() {
                 <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-violet/10 blur-3xl transition group-hover:bg-emerald/12" />
                 <div className="relative">
                   <div className="mb-8 flex items-center justify-between gap-4">
-                    <div className="grid h-14 w-14 place-items-center rounded-2xl border border-gold/25 bg-gold/10 text-2xl text-gold shadow-[0_0_35px_rgba(215,181,109,.08)]">
+                    <div className="grid h-14 w-14 place-items-center rounded-2xl border border-gold/25 bg-gold/10 text-[0.68rem] font-black uppercase tracking-[0.22em] text-gold shadow-[0_0_35px_rgba(215,181,109,.08)]">
                       {item.icon}
                     </div>
                     <span className="rounded-full border border-white/10 bg-black/25 px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.22em] text-mist">
@@ -1208,7 +1219,7 @@ function App() {
               <div className="grid gap-4">
                 {copy.process.steps.map((item: ProcessStep, index: number) => (
                   <article key={item.title} className="group relative pl-16">
-                    <div className="absolute left-6 top-7 h-4 w-4 -translate-x-1/2 rounded-full border border-emerald/45 bg-void shadow-[0_0_24px_rgba(29,242,178,.28)]" />
+                    <div className="absolute left-6 top-7 h-4 w-4 -translate-x-1/2 rounded-full border border-emerald/45 bg-void shadow-[0_0_24px_rgba(50,214,178,.28)]" />
                     <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 group-hover:-translate-y-1 group-hover:border-emerald/30">
                       <div className="mb-4 flex flex-wrap items-center gap-3">
                         <span className="text-xs font-black uppercase tracking-[0.28em] text-gold">
@@ -1293,7 +1304,13 @@ function App() {
               <p className="font-black uppercase tracking-[0.25em] text-emerald">{copy.footer.nav}</p>
               <div className="mt-5 grid grid-cols-2 gap-3">
                 {copy.nav.map((item) => (
-                  <a key={item.href} href={item.href} className="text-mist transition hover:text-white">
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+                    className="text-mist transition hover:text-white"
+                  >
                     {item.label}
                   </a>
                 ))}
@@ -1309,7 +1326,7 @@ function App() {
                   </span>
                 ))}
               </div>
-              <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta mt-6 inline-flex w-full justify-center rounded-2xl bg-emerald px-5 py-4 font-black text-void transition hover:bg-[#68ffd5]">
+              <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta mt-6 inline-flex w-full justify-center rounded-2xl bg-emerald px-5 py-4 font-black text-void transition hover:bg-[#74e6cf]">
                 {copy.footer.openTelegram}
               </a>
             </div>
