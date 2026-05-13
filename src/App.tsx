@@ -183,14 +183,14 @@ function AssistantWidget() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      text: 'Hi. I am the Elven Syndicate assistant. Tell me what kind of website or AI flow you want to build.',
+      text: 'Hi. I am a demo AI assistant for Elven Syndicate. I can help outline your website, AI assistant or Telegram lead flow.',
     },
   ]);
 
   const quickPrompts = [
-    'Website with AI assistant',
-    'Telegram lead funnel',
-    'Portfolio-grade landing',
+    'I need a website with AI assistant',
+    'I want Telegram lead funnel',
+    'I need portfolio-grade landing',
   ];
 
   const sendMessage = (text?: string) => {
@@ -203,7 +203,7 @@ function AssistantWidget() {
       { role: 'user', text: value },
       {
         role: 'assistant',
-        text: 'Good. I would clarify your niche, target action, style references, deadline and the way leads should reach Telegram.',
+        text: 'Great. Next I would ask 5 things: your niche, target client, main action, visual references and how the request should reach Telegram.',
       },
     ]);
 
@@ -241,6 +241,11 @@ function AssistantWidget() {
         </div>
 
         <div className="max-h-[360px] space-y-3 overflow-y-auto p-5">
+          <div className="rounded-2xl border border-gold/20 bg-gold/10 p-4 text-xs leading-5 text-mist">
+            <p className="font-black uppercase tracking-[0.22em] text-gold">How it works</p>
+            <p className="mt-2">This is a frontend demo. Choose a quick prompt or type your idea. The assistant shows how a future AI flow can qualify leads before moving them to Telegram.</p>
+          </div>
+
           {messages.map((message, index) => (
             <div
               key={`${message.role}-${index}`}
