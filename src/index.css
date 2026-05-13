@@ -782,115 +782,78 @@ header nav button:focus-visible::after {
 }
 
 
-/* PREMIUM PASS: living cards and showcase polish */
 
-@keyframes arcaneLinesDrift {
+
+/* SAFE PREMIUM PASS: scoped polish without badge bugs */
+
+@keyframes arcaneLinesDriftSafe {
   0%, 100% {
     background-position: 0 0, 0 0, 50% 50%, 50% 50%;
   }
-  45% {
-    background-position: 32px -18px, -26px 22px, 52% 47%, 48% 54%;
-  }
-  70% {
-    background-position: -18px 24px, 18px -14px, 49% 52%, 53% 49%;
+  50% {
+    background-position: 26px -14px, -20px 18px, 51% 48%, 49% 53%;
   }
 }
 
 .arcane-lines {
-  animation: arcaneLinesDrift 30s ease-in-out infinite;
+  animation: arcaneLinesDriftSafe 34s ease-in-out infinite;
 }
 
-main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea) {
-  position: relative;
-  overflow: hidden;
+/* Возвращаем маленькие круглые бейджи в нормальное состояние */
+main :where(span, div)[class*="rounded-full"][class*="border"] {
+  overflow: visible !important;
+}
+
+main :where(span, div)[class*="rounded-full"][class*="absolute"],
+main :where(span, div)[class*="absolute"][class*="rounded-full"] {
+  position: absolute !important;
+  transform: none !important;
+}
+
+/* Безопасные hover-эффекты только для крупных карточек, не для бейджей */
+main section:not(#contact) :where(article, div)[class*="rounded-"][class*="border"]:not([class*="rounded-full"]):not([class*="absolute"]) {
   transition:
-    transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 520ms cubic-bezier(0.16, 1, 0.3, 1),
-    background 520ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 520ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    background 480ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea)::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 12%, rgba(88, 210, 207, 0.10), transparent 34%),
-    radial-gradient(circle at 84% 84%, rgba(116, 90, 220, 0.10), transparent 36%);
-  opacity: 0;
-  transition: opacity 520ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea):hover {
-  transform: translateY(-4px);
-  border-color: rgba(88, 210, 207, 0.28);
+main section:not(#contact) :where(article, div)[class*="rounded-"][class*="border"]:not([class*="rounded-full"]):not([class*="absolute"]):hover {
+  border-color: rgba(88, 210, 207, 0.24);
   box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.28),
-    0 0 46px rgba(88, 210, 207, 0.09);
+    0 22px 62px rgba(0, 0, 0, 0.24),
+    0 0 34px rgba(88, 210, 207, 0.07);
 }
 
-main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea):hover::before {
-  opacity: 1;
+/* Но не двигаем карточки опыта, чтобы таймлайн не ломался */
+#experience :where(article, div)[class*="rounded-"][class*="border"]:hover {
+  transform: none !important;
 }
 
+/* Мягкий zoom только для картинок витрины/яиц */
 #showcase img,
-#cases img,
-#stack img {
+#works img,
+#cases img {
   transition:
-    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform 680ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 680ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#showcase :where([class*="overflow-hidden"], [class*="rounded-"]):hover img,
-#cases :where([class*="overflow-hidden"], [class*="rounded-"]):hover img,
-#stack :where([class*="overflow-hidden"], [class*="rounded-"]):hover img {
-  transform: scale(1.035);
-  filter: saturate(1.08) contrast(1.04);
-}
-
-#showcase button,
-#faq button,
-#process button {
-  transition:
-    transform 360ms cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 360ms cubic-bezier(0.16, 1, 0.3, 1),
-    background 360ms cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 360ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-#showcase button:hover,
-#faq button:hover,
-#process button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
-}
-
-.elven-premium-button {
-  margin-top: 1.2rem !important;
-  color: #f7fffe !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.01em;
-}
-
-.elven-premium-button:hover {
-  transform: translateY(-2px) !important;
+#showcase :where(article, div):hover img,
+#works :where(article, div):hover img,
+#cases :where(article, div):hover img {
+  transform: scale(1.025);
+  filter: saturate(1.05) contrast(1.03);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .arcane-lines,
-  main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea),
+  main section:not(#contact) :where(article, div)[class*="rounded-"][class*="border"],
   #showcase img,
-  #cases img,
-  #stack img {
+  #works img,
+  #cases img {
     animation: none !important;
     transition: none !important;
-  }
-
-  main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea):hover,
-  #showcase :where([class*="overflow-hidden"], [class*="rounded-"]):hover img,
-  #cases :where([class*="overflow-hidden"], [class*="rounded-"]):hover img,
-  #stack :where([class*="overflow-hidden"], [class*="rounded-"]):hover img {
-    transform: none !important;
   }
 }
