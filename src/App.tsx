@@ -1403,6 +1403,20 @@ function ArcaneReviewsSection({ lang }: { lang: Lang }) {
   );
 }
 
+function RunicAtmosphere() {
+  const marks = ['✦', '◇', '✧', '⬡', '✷', '◈', '✶', '◇', '✦'];
+
+  return (
+    <div className="runic-atmosphere" aria-hidden="true">
+      {marks.map((mark, index) => (
+        <span key={`${mark}-${index}`} className={`runic-mark runic-mark-${index + 1}`}>
+          {mark}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function App() {
   const [lang, setLang] = useState<Lang>(() => {
     if (typeof window === 'undefined') return 'en';
@@ -1426,6 +1440,7 @@ function App() {
       </div>
 
       <div className="arcane-lines pointer-events-none fixed inset-0 z-[1]" />
+      <RunicAtmosphere />
       <ArcaneGlyphField />
 
       <div className="relative z-10">

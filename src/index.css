@@ -516,3 +516,101 @@ header nav button:active {
     filter: blur(0);
   }
 }
+
+
+/* Subtle living arcane background */
+.runic-atmosphere {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0.72;
+}
+
+.runic-mark {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 1px solid rgba(79, 202, 199, 0.13);
+  border-radius: 999px;
+  color: rgba(93, 215, 211, 0.32);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(79, 202, 199, 0.12), transparent 62%),
+    rgba(255, 255, 255, 0.018);
+  box-shadow:
+    0 0 28px rgba(79, 202, 199, 0.08),
+    inset 0 0 22px rgba(109, 85, 216, 0.035);
+  filter: blur(0.1px);
+  animation:
+    runicFloat 18s cubic-bezier(0.45, 0, 0.25, 1) infinite,
+    runicPulse 7s ease-in-out infinite;
+}
+
+.runic-mark-1 { left: 7%; top: 18%; animation-delay: -1s; transform: scale(0.72); }
+.runic-mark-2 { left: 29%; top: 9%; animation-delay: -8s; transform: scale(0.48); }
+.runic-mark-3 { right: 12%; top: 16%; animation-delay: -4s; transform: scale(0.62); }
+.runic-mark-4 { right: 5%; top: 48%; animation-delay: -12s; transform: scale(0.82); }
+.runic-mark-5 { left: 9%; top: 74%; animation-delay: -6s; transform: scale(0.56); }
+.runic-mark-6 { left: 47%; top: 53%; animation-delay: -10s; transform: scale(0.44); }
+.runic-mark-7 { right: 22%; top: 77%; animation-delay: -15s; transform: scale(0.68); }
+.runic-mark-8 { left: 68%; top: 32%; animation-delay: -3s; transform: scale(0.5); }
+.runic-mark-9 { left: 38%; top: 86%; animation-delay: -11s; transform: scale(0.54); }
+
+@keyframes runicFloat {
+  0%, 100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+
+  34% {
+    translate: 12px -18px;
+    rotate: 12deg;
+  }
+
+  68% {
+    translate: -14px 16px;
+    rotate: -10deg;
+  }
+}
+
+@keyframes runicPulse {
+  0%, 100% {
+    opacity: 0.14;
+    box-shadow:
+      0 0 22px rgba(79, 202, 199, 0.06),
+      inset 0 0 18px rgba(109, 85, 216, 0.035);
+  }
+
+  50% {
+    opacity: 0.46;
+    box-shadow:
+      0 0 42px rgba(79, 202, 199, 0.16),
+      inset 0 0 26px rgba(109, 85, 216, 0.08);
+  }
+}
+
+@media (max-width: 768px) {
+  .runic-atmosphere {
+    opacity: 0.42;
+  }
+
+  .runic-mark {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .runic-mark-4,
+  .runic-mark-7,
+  .runic-mark-9 {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .runic-mark {
+    animation: none;
+  }
+}
