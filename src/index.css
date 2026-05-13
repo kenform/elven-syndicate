@@ -45,8 +45,8 @@ a {
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.001ms !important;
-    transition-duration: 0.001ms !important;
+    scroll-behavior: auto;
+    animation-duration: 0.001ms;
+    transition-duration: 0.001ms;
   }
 }
