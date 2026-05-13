@@ -780,3 +780,117 @@ header nav button:focus-visible::after {
     transform: none !important;
   }
 }
+
+
+/* PREMIUM PASS: living cards and showcase polish */
+
+@keyframes arcaneLinesDrift {
+  0%, 100% {
+    background-position: 0 0, 0 0, 50% 50%, 50% 50%;
+  }
+  45% {
+    background-position: 32px -18px, -26px 22px, 52% 47%, 48% 54%;
+  }
+  70% {
+    background-position: -18px 24px, 18px -14px, 49% 52%, 53% 49%;
+  }
+}
+
+.arcane-lines {
+  animation: arcaneLinesDrift 30s ease-in-out infinite;
+}
+
+main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea) {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    background 520ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(88, 210, 207, 0.10), transparent 34%),
+    radial-gradient(circle at 84% 84%, rgba(116, 90, 220, 0.10), transparent 36%);
+  opacity: 0;
+  transition: opacity 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea):hover {
+  transform: translateY(-4px);
+  border-color: rgba(88, 210, 207, 0.28);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.28),
+    0 0 46px rgba(88, 210, 207, 0.09);
+}
+
+main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea):hover::before {
+  opacity: 1;
+}
+
+#showcase img,
+#cases img,
+#stack img {
+  transition:
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#showcase :where([class*="overflow-hidden"], [class*="rounded-"]):hover img,
+#cases :where([class*="overflow-hidden"], [class*="rounded-"]):hover img,
+#stack :where([class*="overflow-hidden"], [class*="rounded-"]):hover img {
+  transform: scale(1.035);
+  filter: saturate(1.08) contrast(1.04);
+}
+
+#showcase button,
+#faq button,
+#process button {
+  transition:
+    transform 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    background 360ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#showcase button:hover,
+#faq button:hover,
+#process button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
+}
+
+.elven-premium-button {
+  margin-top: 1.2rem !important;
+  color: #f7fffe !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.01em;
+}
+
+.elven-premium-button:hover {
+  transform: translateY(-2px) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arcane-lines,
+  main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea),
+  #showcase img,
+  #cases img,
+  #stack img {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  main section:not(#contact) :where([class*="rounded-"][class*="border"]):not(button):not(a):not(input):not(textarea):hover,
+  #showcase :where([class*="overflow-hidden"], [class*="rounded-"]):hover img,
+  #cases :where([class*="overflow-hidden"], [class*="rounded-"]):hover img,
+  #stack :where([class*="overflow-hidden"], [class*="rounded-"]):hover img {
+    transform: none !important;
+  }
+}
