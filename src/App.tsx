@@ -1081,81 +1081,78 @@ function StudioConsole({ lang }: { lang: Lang }) {
 function ExperienceBlock({ lang }: { lang: Lang }) {
   const t = lang === 'ru'
     ? {
-        label: 'Опыт',
-        title: 'Практический опыт в web, AI и запуске проектов.',
-        text: 'Этот блок показывает не выдуманные места работы, а реальные направления, на которых строится Elven Syndicate: интерфейсы, AI-сценарии, Telegram-логика и аккуратный production-ready запуск.',
-        items: [
-          {
-            title: 'Frontend & UI',
-            meta: 'React · TypeScript · Tailwind',
-            text: 'Адаптивные интерфейсы, чистая структура секций, сильный первый экран, аккуратная мобильная версия и понятная визуальная система.',
-          },
-          {
-            title: 'AI & Telegram flows',
-            meta: 'Assistant · Lead flow · Brief',
-            text: 'Сценарии, где сайт не просто показывает информацию, а собирает контекст, квалифицирует заявку и ведёт человека в Telegram.',
-          },
-          {
-            title: 'Launch & polish',
-            meta: 'GitHub · Vercel · SEO',
-            text: 'Деплой, метаданные, favicon, проверка мобильной версии, быстрая загрузка и последовательная полировка после первого релиза.',
-          },
+        label: 'Практический опыт',
+        title: 'Frontend & AI Systems Developer с сильной технической базой.',
+        text: 'Я совмещаю web-разработку, системное мышление, AI/Telegram-сценарии, криптоаналитику и практический опыт в IT-инфраструктуре. Поэтому сайты Elven Syndicate строятся не просто как красивые страницы, а как digital-системы: структура, адаптив, скорость, заявки, Telegram и возможность развивать проект дальше.',
+        stats: [
+          ['2+ года', 'web-разработки и самостоятельной практики'],
+          ['1+ год', 'системного администрирования и IT-поддержки'],
+          ['3+ года', 'crypto / trading / Telegram-аналитики'],
+          ['2 года', 'опыта оператора ПК и работы с данными'],
+        ],
+        timeline: [
+          ['Колледж АГУ', 'Web-программист / разработка сайта', 'Создавал сайт для колледжа: структура, ТЗ, дизайн в нескольких цветовых вариантах, вёрстка, WordPress-часть и базовая подготовка под SEO.'],
+          ['IT-поддержка', 'Помощник системного администратора', 'Работал с ПК, офисной техникой, ПО, Wi-Fi, диагностикой, настройкой и поддержкой пользователей. Это добавило системного мышления и внимания к стабильности.'],
+          ['Freelance / практика', 'Web-разработка и коммерческие задачи', 'Около года фриланс-практики и около двух лет самостоятельного развития: сайты, лендинги, портфолио, адаптив, UI-полировка, GitHub, Vercel и реальные проекты.'],
+          ['Crypto / Telegram', 'Аналитика, трейдинг и Telegram-каналы', 'Несколько лет в криптовалютной среде: анализ рынка, торговые сценарии, ведение Telegram-канала, администрирование, упаковка информации и работа с аудиторией.'],
+          ['Elven Syndicate', 'Frontend & AI Systems Developer', 'Собираю сайты и AI-ready интерфейсы, где важны визуальная подача, структура, скорость, мобильная версия, Telegram-first заявки и будущий AI-ассистент.'],
         ],
       }
     : {
-        label: 'Experience',
-        title: 'Practical experience across web, AI and launches.',
-        text: 'This section avoids fake job history and focuses on the real directions behind Elven Syndicate: interfaces, AI flows, Telegram logic and production-ready delivery.',
-        items: [
-          {
-            title: 'Frontend & UI',
-            meta: 'React · TypeScript · Tailwind',
-            text: 'Responsive interfaces, clean section structure, strong hero screens, polished mobile layouts and consistent visual systems.',
-          },
-          {
-            title: 'AI & Telegram flows',
-            meta: 'Assistant · Lead flow · Brief',
-            text: 'Flows where the site does not only present information, but collects context, qualifies requests and moves people into Telegram.',
-          },
-          {
-            title: 'Launch & polish',
-            meta: 'GitHub · Vercel · SEO',
-            text: 'Deployment, metadata, favicon, mobile checks, fast loading and structured polishing after the first release.',
-          },
+        label: 'Practical experience',
+        title: 'Frontend & AI Systems Developer with a strong technical base.',
+        text: 'I combine web development, system thinking, AI/Telegram flows, crypto analytics and practical IT infrastructure experience. Elven Syndicate websites are built not just as beautiful pages, but as digital systems: structure, responsive UI, speed, requests, Telegram and future growth.',
+        stats: [
+          ['2+ years', 'of web development and self-driven practice'],
+          ['1+ year', 'of system administration and IT support'],
+          ['3+ years', 'of crypto / trading / Telegram analysis'],
+          ['2 years', 'of PC operator and data workflow experience'],
+        ],
+        timeline: [
+          ['ASU College', 'Web programmer / website development', 'Built a college website: structure, technical brief, several color design directions, layout, WordPress implementation and basic SEO preparation.'],
+          ['IT support', 'Assistant system administrator', 'Worked with PCs, office equipment, software, Wi-Fi, diagnostics, setup and user support. This added system thinking and attention to stability.'],
+          ['Freelance / practice', 'Web development and commercial tasks', 'Around a year of freelance practice and about two years of self-driven growth: websites, landing pages, portfolio projects, responsive UI, GitHub and Vercel.'],
+          ['Crypto / Telegram', 'Analytics, trading and Telegram channels', 'Several years in crypto: market analysis, trading scenarios, Telegram channel administration, structured content and audience work.'],
+          ['Elven Syndicate', 'Frontend & AI Systems Developer', 'I build websites and AI-ready interfaces with strong visuals, clear structure, speed, mobile polish, Telegram-first requests and future AI assistant logic.'],
         ],
       };
 
   return (
     <section id="experience" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+      <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
         <div className="lg:sticky lg:top-28">
           <SectionLabel>{t.label}</SectionLabel>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">{t.title}</h2>
           <p className="mt-5 text-lg leading-8 text-mist">{t.text}</p>
-        </div>
-
-        <div className="grid gap-4">
-          {t.items.map((item, index) => (
-            <article key={item.title} className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-500 hover:-translate-y-1 hover:border-emerald/35 hover:bg-white/[0.055]">
-              <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-emerald/10 blur-3xl transition duration-500 group-hover:bg-violet/15" />
-              <div className="relative grid gap-5 sm:grid-cols-[4.5rem_1fr]">
-                <div className="grid h-16 w-16 place-items-center rounded-2xl border border-gold/25 bg-gold/10 text-sm font-black text-gold">
-                  0{index + 1}
-                </div>
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald">{item.meta}</p>
-                  <h3 className="mt-3 text-2xl font-semibold text-white">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-mist">{item.text}</p>
-                </div>
+          <div className="mt-8 grid grid-cols-2 gap-3">
+            {t.stats.map(([value, label]) => (
+              <div key={value} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur">
+                <p className="text-xl font-black text-white">{value}</p>
+                <p className="mt-1 text-xs leading-5 text-mist">{label}</p>
               </div>
-            </article>
-          ))}
+            ))}
+          </div>
+        </div>
+        <div className="relative">
+          <div className="pointer-events-none absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-emerald/50 to-transparent sm:block" />
+          <div className="grid gap-5">
+            {t.timeline.map(([period, title, text], index) => (
+              <article key={title} className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-500 hover:-translate-y-1 hover:border-emerald/35 hover:bg-white/[0.055] sm:pl-20">
+                <div className="absolute left-4 top-6 hidden h-10 w-10 place-items-center rounded-full border border-gold/25 bg-gold/10 text-xs font-black text-gold sm:grid">0{index + 1}</div>
+                <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-emerald/10 blur-3xl transition duration-500 group-hover:bg-violet/15" />
+                <div className="relative">
+                  <p className="text-xs font-black uppercase tracking-[0.22em] text-gold">{period}</p>
+                  <h3 className="mt-3 text-2xl font-semibold text-white">{title}</h3>
+                  <p className="mt-3 leading-7 text-mist">{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
 
 function ResultCards({ lang }: { lang: Lang }) {
   const t = lang === 'ru'
@@ -1228,6 +1225,65 @@ function ArcaneGlyphField() {
   );
 }
 
+
+function ArcaneReviewsSection({ lang }: { lang: Lang }) {
+  const t = lang === 'ru'
+    ? {
+        label: 'Отзывы и доверие',
+        title: 'Сигналы доверия, запечатанные в проектах.',
+        text: 'Пока здесь не сухие фейковые цитаты, а аккуратная зона доверия: какие задачи уже собраны, что улучшалось и куда можно перейти, чтобы посмотреть работы.',
+        portfolio: 'Открыть портфолио',
+        cards: [
+          ['VitaPulse', 'Медицинский сайт был доведён до понятной структуры: услуги, цены, специалисты, контакты, адаптив и спокойная визуальная подача.', 'Структура · доверие · адаптив'],
+          ['Портфолио', 'Портфолио собирается как витрина работ: проекты, описания, ссылки, визуальная подача и постепенная полировка слабых мест.', 'Витрина · проекты · презентация'],
+          ['Elven Syndicate', 'Fantasy-tech сайт строится как будущая digital-система: заявки, Telegram, AI-ассистент, RU/EN и премиальная подача.', 'Web · AI · Telegram'],
+        ],
+      }
+    : {
+        label: 'Reviews and trust',
+        title: 'Trust signals sealed inside projects.',
+        text: 'Not fake dry quotes, but a clean trust zone: what has been built, what was improved and where visitors can open the portfolio.',
+        portfolio: 'Open portfolio',
+        cards: [
+          ['VitaPulse', 'The healthcare website was polished into a clearer structure: services, prices, specialists, contacts, responsive UI and calm visual presentation.', 'Structure · trust · responsive'],
+          ['Portfolio', 'The portfolio is becoming a proper work showcase: projects, descriptions, links, visual presentation and gradual polish of weak spots.', 'Showcase · projects · presentation'],
+          ['Elven Syndicate', 'The fantasy-tech website is built as a future digital system: requests, Telegram, AI assistant, RU/EN and premium presentation.', 'Web · AI · Telegram'],
+        ],
+      };
+
+  return (
+    <section id="reviews" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-3xl">
+          <SectionLabel>{t.label}</SectionLabel>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">{t.title}</h2>
+          <p className="mt-5 text-lg leading-8 text-mist">{t.text}</p>
+        </div>
+        <a href="https://portfolio-pi-snowy-53.vercel.app/#/projects" target="_blank" rel="noreferrer" className="inline-flex w-fit items-center justify-center rounded-2xl border border-emerald/30 bg-emerald/10 px-6 py-4 text-sm font-black text-white transition-all duration-500 hover:-translate-y-1 hover:border-emerald/60 hover:bg-emerald/15">
+          {t.portfolio}
+        </a>
+      </div>
+      <div className="mb-8 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-3 shadow-[0_0_70px_rgba(70,188,186,.10)] backdrop-blur">
+        <img src="/assets/review-eggs-1.png" alt="Arcane dragon eggs for testimonial seals" className="h-auto w-full rounded-[1.5rem] object-cover opacity-90" loading="lazy" />
+      </div>
+      <div className="grid gap-5 lg:grid-cols-3">
+        {t.cards.map(([title, quote, result], index) => (
+          <article key={title} className="group relative min-h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-500 hover:-translate-y-1 hover:border-gold/35 hover:bg-white/[0.055]">
+            <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-violet/10 blur-3xl transition duration-500 group-hover:bg-emerald/10" />
+            <div className="relative flex h-full flex-col">
+              <p className="text-sm font-black text-gold">0{index + 1}</p>
+              <h3 className="mt-8 text-2xl font-semibold text-white">{title}</h3>
+              <p className="mt-5 leading-7 text-mist">“{quote}”</p>
+              <div className="mt-auto border-t border-white/10 pt-6">
+                <p className="text-sm font-black text-white">{result}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function App() {
   const [lang, setLang] = useState<Lang>(() => {
@@ -1505,6 +1561,8 @@ function App() {
         </section>
 
         <ResultCards lang={lang} />
+
+        <ArcaneReviewsSection lang={lang} />
 
         <section id="faq" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
