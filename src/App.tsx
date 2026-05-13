@@ -1082,38 +1082,38 @@ function ExperienceBlock({ lang }: { lang: Lang }) {
   const t = lang === 'ru'
     ? {
         label: 'Практический опыт',
-        title: 'Frontend & AI Systems Developer с сильной технической базой.',
-        text: 'Я совмещаю web-разработку, системное мышление, AI/Telegram-сценарии, криптоаналитику и практический опыт в IT-инфраструктуре. Поэтому сайты Elven Syndicate строятся не просто как красивые страницы, а как digital-системы: структура, адаптив, скорость, заявки, Telegram и возможность развивать проект дальше.',
+        title: 'Frontend & AI Systems Developer с коммерческим подходом и сильной IT-базой.',
+        text: 'Я больше 8 лет работаю в digital-среде: web-разработка, IT-инфраструктура, Telegram-системы, crypto-аналитика, продажи и клиентские процессы. Поэтому я собираю сайты не как набор красивых блоков, а как рабочие digital-системы: презентация, доверие, скорость, адаптив, заявки, Telegram и возможность развивать проект дальше.',
         stats: [
-          ['2+ года', 'web-разработки и самостоятельной практики'],
+          ['2+ года', 'web-разработки и коммерческих проектов'],
           ['1+ год', 'системного администрирования и IT-поддержки'],
-          ['3+ года', 'crypto / trading / Telegram-аналитики'],
-          ['2 года', 'опыта оператора ПК и работы с данными'],
+          ['4 года', 'crypto / trading / Telegram-аналитики'],
+          ['8+ лет', 'практического опыта в digital-среде'],
         ],
         timeline: [
           ['Колледж АГУ', 'Web-программист / разработка сайта', 'Создавал сайт для колледжа: структура, ТЗ, дизайн в нескольких цветовых вариантах, вёрстка, WordPress-часть и базовая подготовка под SEO.'],
           ['IT-поддержка', 'Помощник системного администратора', 'Работал с ПК, офисной техникой, ПО, Wi-Fi, диагностикой, настройкой и поддержкой пользователей. Это добавило системного мышления и внимания к стабильности.'],
-          ['Freelance / практика', 'Web-разработка и коммерческие задачи', 'Около года фриланс-практики и около двух лет самостоятельного развития: сайты, лендинги, портфолио, адаптив, UI-полировка, GitHub, Vercel и реальные проекты.'],
-          ['Crypto / Telegram', 'Аналитика, трейдинг и Telegram-каналы', 'Несколько лет в криптовалютной среде: анализ рынка, торговые сценарии, ведение Telegram-канала, администрирование, упаковка информации и работа с аудиторией.'],
-          ['Elven Syndicate', 'Frontend & AI Systems Developer', 'Собираю сайты и AI-ready интерфейсы, где важны визуальная подача, структура, скорость, мобильная версия, Telegram-first заявки и будущий AI-ассистент.'],
+          ['Freelance / практика', 'Web-разработка и коммерческие задачи', 'Коммерческая web-разработка, лендинги, портфолио, адаптивные интерфейсы, UI-полировка, GitHub, Vercel и работа с реальными задачами: от идеи и структуры до запуска.'],
+          ['Crypto / Telegram', 'Аналитика, трейдинг и Telegram-каналы', '4 года в криптовалютной среде: анализ рынка, торговые сценарии, ведение Telegram-канала, администрирование, упаковка информации и работа с аудиторией.'],
+          ['Elven Syndicate', 'Frontend & AI Systems Developer', 'Собираю сайты, AI-ready интерфейсы и Telegram-first сценарии, где важны сильная визуальная подача, структура, скорость, мобильная версия, понятная заявка и возможность подключить полноценного AI-ассистента.'],
         ],
       }
     : {
         label: 'Practical experience',
-        title: 'Frontend & AI Systems Developer with a strong technical base.',
-        text: 'I combine web development, system thinking, AI/Telegram flows, crypto analytics and practical IT infrastructure experience. Elven Syndicate websites are built not just as beautiful pages, but as digital systems: structure, responsive UI, speed, requests, Telegram and future growth.',
+        title: 'Frontend & AI Systems Developer with a commercial mindset and strong IT base.',
+        text: 'I have 8+ years of practical digital background across web development, IT infrastructure, Telegram systems, crypto analytics, sales and client workflows. I build websites not as random beautiful blocks, but as working digital systems: presentation, trust, speed, responsive UI, requests, Telegram and future growth.',
         stats: [
-          ['2+ years', 'of web development and self-driven practice'],
+          ['2+ years', 'of web development and commercial projects'],
           ['1+ year', 'of system administration and IT support'],
-          ['3+ years', 'of crypto / trading / Telegram analysis'],
-          ['2 years', 'of PC operator and data workflow experience'],
+          ['4 years', 'of crypto / trading / Telegram analysis'],
+          ['8+ years', 'of practical digital workflow experience'],
         ],
         timeline: [
           ['ASU College', 'Web programmer / website development', 'Built a college website: structure, technical brief, several color design directions, layout, WordPress implementation and basic SEO preparation.'],
           ['IT support', 'Assistant system administrator', 'Worked with PCs, office equipment, software, Wi-Fi, diagnostics, setup and user support. This added system thinking and attention to stability.'],
-          ['Freelance / practice', 'Web development and commercial tasks', 'Around a year of freelance practice and about two years of self-driven growth: websites, landing pages, portfolio projects, responsive UI, GitHub and Vercel.'],
-          ['Crypto / Telegram', 'Analytics, trading and Telegram channels', 'Several years in crypto: market analysis, trading scenarios, Telegram channel administration, structured content and audience work.'],
-          ['Elven Syndicate', 'Frontend & AI Systems Developer', 'I build websites and AI-ready interfaces with strong visuals, clear structure, speed, mobile polish, Telegram-first requests and future AI assistant logic.'],
+          ['Freelance / practice', 'Web development and commercial tasks', 'Commercial web development, landing pages, portfolio websites, responsive interfaces, UI polish, GitHub, Vercel and real project work: from idea and structure to launch.'],
+          ['Crypto / Telegram', 'Analytics, trading and Telegram channels', '4 years in crypto: market analysis, trading scenarios, Telegram channel administration, structured content and audience work.'],
+          ['Elven Syndicate', 'Frontend & AI Systems Developer', 'I build websites, AI-ready interfaces and Telegram-first flows where strong visuals, clear structure, speed, mobile polish, qualified requests and future AI assistant logic matter.'],
         ],
       };
 
