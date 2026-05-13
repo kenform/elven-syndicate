@@ -23,10 +23,30 @@ const heroStats = [
 ];
 
 const services = [
-  { title: 'Premium landing pages', text: 'Modern responsive websites with strong hero sections, clear offers, fast loading and Telegram-ready CTA flows.' },
-  { title: 'AI sales assistants', text: 'Assistant widgets that answer questions, collect client context, qualify leads and prepare requests before you reply.' },
-  { title: 'Telegram funnels', text: 'Simple conversion paths where visitors move from the website into Telegram with a clear task, budget and project brief.' },
-  { title: 'Portfolio & brand systems', text: 'Personal and studio websites with memorable visuals, reusable components and a style that feels like a real brand.' },
+  {
+    title: 'Premium websites',
+    icon: '✦',
+    label: 'Landing',
+    text: 'Modern responsive websites with a strong first screen, clear offer, polished sections and a path toward a real request.',
+  },
+  {
+    title: 'AI sales assistants',
+    icon: '◇',
+    label: 'AI',
+    text: 'Assistant interfaces that explain the offer, ask the right questions and prepare the client before the Telegram conversation.',
+  },
+  {
+    title: 'Telegram funnels',
+    icon: '↗',
+    label: 'Flow',
+    text: 'A clean route from attention to contact: CTA, short qualification and a warmer message instead of an empty “hello”.',
+  },
+  {
+    title: 'Brand systems',
+    icon: '◈',
+    label: 'Identity',
+    text: 'Visual language, structure and reusable sections that make the project feel like a premium studio product.',
+  },
 ];
 
 const businessItems = [
@@ -73,7 +93,7 @@ const caseStudies = [
 const faqItems = [
   {
     question: 'Is the AI assistant real?',
-    answer: 'For now it works as a frontend demo. Later it can be connected to a real AI API, Telegram bot or CRM flow.',
+    answer: 'The assistant is designed as a qualification layer for visitors. It can later be connected to a real AI API, Telegram bot or CRM flow.',
   },
   {
     question: 'Can this site be adapted for a real client?',
@@ -277,6 +297,70 @@ function FAQAccordionItem({
 }
 
 
+
+function ContactBrief() {
+  const [projectType, setProjectType] = useState('');
+  const [goal, setGoal] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  const brief = [
+    'Elven Syndicate brief',
+    `Project type: ${projectType || 'not specified'}`,
+    `Main goal: ${goal || 'not specified'}`,
+  ].join('\n');
+
+  const submitBrief = async () => {
+    try {
+      await navigator.clipboard?.writeText(brief);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
+
+    window.open('https://t.me/ElvenSyndicateStudio', '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <form
+      className="rounded-[1.75rem] border border-white/10 bg-black/25 p-5 backdrop-blur"
+      onSubmit={(event) => {
+        event.preventDefault();
+        submitBrief();
+      }}
+    >
+      <div className="grid gap-4">
+        <label className="grid gap-2 text-sm font-bold text-white">
+          Project type
+          <input
+            value={projectType}
+            onChange={(event) => setProjectType(event.target.value)}
+            className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none placeholder:text-mist/60 focus:border-violet/50"
+            placeholder="Landing, AI assistant, portfolio..."
+          />
+        </label>
+
+        <label className="grid gap-2 text-sm font-bold text-white">
+          Main goal
+          <textarea
+            value={goal}
+            onChange={(event) => setGoal(event.target.value)}
+            className="min-h-28 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none placeholder:text-mist/60 focus:border-violet/50"
+            placeholder="Tell me what the site should do..."
+          />
+        </label>
+
+        <button
+          type="submit"
+          className="elven-cta inline-flex justify-center rounded-2xl bg-gradient-to-r from-[#c7a968] via-[#8b5cf6] to-[#1df2b2] px-5 py-4 text-sm font-black text-void transition duration-300 hover:shadow-[0_0_42px_rgba(139,92,246,.22)]"
+        >
+          {copied ? 'Brief copied · Open Telegram' : 'Copy brief and open Telegram'}
+        </button>
+      </div>
+    </form>
+  );
+}
+
+
 function AssistantWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [draft, setDraft] = useState('');
@@ -429,6 +513,8 @@ function App() {
         <div className="absolute inset-0 bg-void/60" />
       </div>
 
+      <div className="arcane-lines pointer-events-none fixed inset-0 z-[1]" />
+
       <div className="relative z-10">
         <Header />
 
@@ -531,7 +617,7 @@ function App() {
               <div className="mt-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
                 <p className="text-sm font-black uppercase tracking-[0.24em] text-gold">Core idea</p>
                 <p className="mt-3 leading-7 text-mist">
-                  Visual identity + clear offer + AI demo + Telegram handoff = a memorable first version of a real web product.
+                  Visual identity + clear offer + AI assistant + Telegram handoff = a memorable first version of a real web product.
                 </p>
               </div>
             </div>
@@ -593,7 +679,7 @@ function App() {
                 },
                 {
                   title: 'AI layer',
-                  items: ['AI demo', 'Telegram', 'Future API'],
+                  items: ['AI assistant', 'Telegram', 'Future API'],
                   text: 'The visible assistant can later connect to real AI and handoff flows.',
                 },
               ].map((group) => (
@@ -694,9 +780,9 @@ function App() {
 
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="mb-10 text-center">
-            <SectionLabel>Signals</SectionLabel>
+            <SectionLabel>Proof</SectionLabel>
             <h2 className="mx-auto mt-4 max-w-4xl text-3xl font-semibold tracking-tight text-white sm:text-5xl">
-              The site should feel alive before the client even writes.
+              Built to turn attention into a serious conversation.
             </h2>
           </div>
 
@@ -704,17 +790,17 @@ function App() {
             {[
               {
                 title: 'Premium first impression',
-                text: 'A visitor should instantly feel that this is not another generic landing page.',
+                text: 'The first screen, visuals and structure should make the project feel premium before the visitor reads every detail.',
                 tag: 'Visual trust',
               },
               {
                 title: 'Clear next action',
-                text: 'Every section should quietly move the user toward a Telegram conversation or project brief.',
+                text: 'The page guides the visitor from visual interest to a clear request, without forcing them through a heavy form.',
                 tag: 'CTA logic',
               },
               {
                 title: 'AI-ready structure',
-                text: 'The current demo assistant can later become a real qualification flow with API, bot or CRM integration.',
+                text: 'The visible assistant can become a real qualification flow with API, bot or CRM integration.',
                 tag: 'Future system',
               },
             ].map((item) => (
@@ -750,7 +836,7 @@ function App() {
         </section>
 
         <section id="contact" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="grid gap-6 rounded-[2rem] border border-emerald/20 bg-emerald/10 p-6 shadow-arcane backdrop-blur sm:p-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid gap-6 rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 shadow-[0_0_80px_rgba(139,92,246,.08)] backdrop-blur sm:p-8 lg:grid-cols-[0.95fr_1.05fr]">
             <div className="p-2 sm:p-4">
               <SectionLabel>Contact</SectionLabel>
               <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -759,26 +845,12 @@ function App() {
               <p className="mt-5 max-w-2xl leading-8 text-mist">
                 Send your niche, goal, references and desired style. I’ll turn the idea into a strong website concept, clean frontend and AI-ready client flow.
               </p>
-              <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta mt-8 inline-flex w-full justify-center rounded-2xl bg-emerald px-7 py-4 font-black text-void transition hover:-translate-y-0.5 hover:bg-[#68ffd5] sm:w-auto">
+              <a href="https://t.me/ElvenSyndicateStudio" className="mt-8 inline-flex w-full justify-center rounded-2xl border border-white/10 bg-white/[0.06] px-7 py-4 font-black text-white transition duration-300 hover:border-violet/40 hover:bg-violet/10 sm:w-auto">
                 Contact in Telegram
               </a>
             </div>
 
-            <form className="rounded-[1.75rem] border border-white/10 bg-black/25 p-5 backdrop-blur">
-              <div className="grid gap-4">
-                <label className="grid gap-2 text-sm font-bold text-white">
-                  Project type
-                  <input className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none placeholder:text-mist/60 focus:border-emerald/50" placeholder="Landing, AI assistant, portfolio..." />
-                </label>
-                <label className="grid gap-2 text-sm font-bold text-white">
-                  Main goal
-                  <textarea className="min-h-28 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-white outline-none placeholder:text-mist/60 focus:border-emerald/50" placeholder="Tell me what the site should do..." />
-                </label>
-                <a href="https://t.me/ElvenSyndicateStudio" className="inline-flex justify-center rounded-2xl border border-emerald/25 bg-emerald/10 px-5 py-4 text-sm font-black text-emerald transition hover:bg-emerald hover:text-void">
-                  Send brief in Telegram
-                </a>
-              </div>
-            </form>
+            <ContactBrief />
           </div>
         </section>
 
@@ -814,7 +886,7 @@ function App() {
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 backdrop-blur">
               <p className="font-black uppercase tracking-[0.25em] text-gold">Build status</p>
               <div className="mt-5 flex flex-wrap gap-2">
-                {['React', 'TypeScript', 'Vercel', 'AI demo', 'Telegram'].map((item) => (
+                {['React', 'TypeScript', 'Vercel', 'AI assistant', 'Telegram'].map((item) => (
                   <span key={item} className="rounded-full border border-white/10 bg-black/25 px-3 py-2 text-xs font-bold text-white">
                     {item}
                   </span>
