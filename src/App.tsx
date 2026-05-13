@@ -647,7 +647,7 @@ function Header({
                 className="group relative text-xs font-semibold text-mist transition duration-300 hover:text-white lg:text-sm"
               >
                 {item.label}
-                <span className="absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 rounded-full bg-gradient-to-r from-gold via-violet to-emerald transition-transform duration-300 group-hover:scale-x-100" />
+                <span className="absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 rounded-full bg-[#58cfd0] shadow-[0_0_14px_rgba(88,207,208,.34)] transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             ))}
           </nav>
@@ -738,7 +738,7 @@ function Header({
           <a
             href="https://t.me/ElvenSyndicateStudio"
             onClick={closeMenu}
-            className="mt-6 inline-flex w-full items-center justify-center rounded-3xl bg-emerald px-6 py-5 text-base font-black text-void shadow-[0_0_50px_rgba(47,189,164,.22)] transition hover:bg-[#86d7c9]"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-3xl bg-emerald px-6 py-5 text-base font-black text-void shadow-[0_0_50px_rgba(53,170,169,.22)] transition hover:bg-[#73c9c7]"
           >
             {cta}
           </a>
@@ -754,7 +754,7 @@ function FAQAccordionItem({ item, index }: { item: FAQItem; index: number }) {
   return (
     <article
       className={`overflow-hidden rounded-[1.75rem] border bg-white/[0.04] backdrop-blur premium-focus-ring ${
-        isOpen ? 'border-emerald/35 shadow-[0_0_50px_rgba(47,189,164,.08)]' : 'border-white/10 hover:border-white/20'
+        isOpen ? 'border-emerald/35 shadow-[0_0_50px_rgba(53,170,169,.08)]' : 'border-white/10 hover:border-white/20'
       }`}
     >
       <button
@@ -766,7 +766,7 @@ function FAQAccordionItem({ item, index }: { item: FAQItem; index: number }) {
         <span className="text-lg font-semibold text-white sm:text-xl">{item.question}</span>
         <span
           className={`relative grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            isOpen ? 'border-emerald/45 bg-white/[0.10] shadow-[0_0_30px_rgba(47,189,164,.16)]' : 'border-white/15 bg-white/[0.08] hover:border-emerald/35'
+            isOpen ? 'border-emerald/45 bg-white/[0.10] shadow-[0_0_30px_rgba(53,170,169,.16)]' : 'border-white/15 bg-white/[0.08] hover:border-emerald/35'
           }`}
         >
           <span className={`absolute h-0.5 w-5 rounded-full bg-white transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'rotate-45' : 'rotate-0'}`} />
@@ -963,7 +963,7 @@ function AssistantWidget({
               placeholder={copy.placeholder}
               className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none transition placeholder:text-mist/60 focus:border-emerald/50"
             />
-            <button type="submit" className="rounded-2xl bg-emerald px-4 py-3 text-sm font-black text-void transition hover:bg-[#86d7c9]">
+            <button type="submit" className="rounded-2xl bg-emerald px-4 py-3 text-sm font-black text-void transition hover:bg-[#73c9c7]">
               {copy.send}
             </button>
           </div>
@@ -977,7 +977,7 @@ function AssistantWidget({
       <button
         type="button"
         onClick={() => setIsOpen((value) => !value)}
-        className="flex items-center gap-3 rounded-full border border-emerald/30 bg-emerald px-5 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(47,189,164,.28)] transition hover:bg-[#86d7c9]"
+        className="flex items-center gap-3 rounded-full border border-emerald/30 bg-emerald px-5 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(53,170,169,.28)] transition hover:bg-[#73c9c7]"
         aria-label="Open AI assistant"
         aria-expanded={isOpen}
       >
@@ -1040,7 +1040,7 @@ function StudioConsole({ lang }: { lang: Lang }) {
         </div>
 
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 shadow-[0_0_80px_rgba(109,85,216,.10)] backdrop-blur">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(109,85,216,.18),transparent_32%),radial-gradient(circle_at_86%_80%,rgba(47,189,164,.12),transparent_36%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(109,85,216,.18),transparent_32%),radial-gradient(circle_at_86%_80%,rgba(53,170,169,.12),transparent_36%)]" />
           <div className="relative rounded-[1.5rem] border border-white/10 bg-black/30 p-5">
             <div className="mb-6 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
               <div>
@@ -1125,6 +1125,30 @@ function ResultCards({ lang }: { lang: Lang }) {
 }
 
 
+
+function ArcaneGlyphField() {
+  const glyphs = [
+    { mark: 'ᛟ', style: { left: '7%', top: '17%', animationDelay: '0s', fontSize: '22px' } },
+    { mark: '✧', style: { left: '87%', top: '15%', animationDelay: '1.8s', fontSize: '18px' } },
+    { mark: '◇', style: { left: '78%', top: '42%', animationDelay: '3.2s', fontSize: '26px' } },
+    { mark: 'ᚱ', style: { left: '13%', top: '67%', animationDelay: '2.4s', fontSize: '19px' } },
+    { mark: '◈', style: { left: '92%', top: '73%', animationDelay: '4.1s', fontSize: '21px' } },
+    { mark: 'ᛉ', style: { left: '39%', top: '12%', animationDelay: '5s', fontSize: '16px' } },
+    { mark: '✦', style: { left: '53%', top: '82%', animationDelay: '1.1s', fontSize: '18px' } },
+  ];
+
+  return (
+    <div className="elven-glyph-field pointer-events-none fixed inset-0 z-[2]" aria-hidden="true">
+      {glyphs.map((glyph, index) => (
+        <span key={`${glyph.mark}-${index}`} className="elven-glyph" style={glyph.style}>
+          {glyph.mark}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+
 function App() {
   const [lang, setLang] = useState<Lang>(() => {
     if (typeof window === 'undefined') return 'en';
@@ -1148,6 +1172,7 @@ function App() {
       </div>
 
       <div className="arcane-lines pointer-events-none fixed inset-0 z-[1]" />
+      <ArcaneGlyphField />
 
       <div className="relative z-10">
         <Header lang={lang} setLang={setLang} navItems={copy.nav} cta={copy.ui.startProject} ui={copy.ui} />
@@ -1173,7 +1198,7 @@ function App() {
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta inline-flex w-full items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(47,189,164,.22)] transition hover:bg-[#86d7c9] sm:w-auto">
+                <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta inline-flex w-full items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(53,170,169,.22)] transition hover:bg-[#73c9c7] sm:w-auto">
                   {copy.hero.primary}
                 </a>
                 <a href="#services" className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-6 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white/10 sm:w-auto">
@@ -1360,7 +1385,7 @@ function App() {
               <div className="grid gap-4">
                 {copy.process.steps.map((item: ProcessStep, index: number) => (
                   <article key={item.title} className="group relative pl-16">
-                    <div className="absolute left-6 top-7 h-4 w-4 -translate-x-1/2 rounded-full border border-emerald/45 bg-void shadow-[0_0_24px_rgba(47,189,164,.28)]" />
+                    <div className="absolute left-6 top-7 h-4 w-4 -translate-x-1/2 rounded-full border border-emerald/45 bg-void shadow-[0_0_24px_rgba(53,170,169,.28)]" />
                     <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 group-hover:-translate-y-1 group-hover:border-emerald/30">
                       <div className="mb-4 flex flex-wrap items-center gap-3">
                         <span className="text-xs font-black uppercase tracking-[0.28em] text-gold">
@@ -1469,7 +1494,7 @@ function App() {
                   </span>
                 ))}
               </div>
-              <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta mt-6 inline-flex w-full justify-center rounded-2xl bg-emerald px-5 py-4 font-black text-void transition hover:bg-[#86d7c9]">
+              <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta mt-6 inline-flex w-full justify-center rounded-2xl bg-emerald px-5 py-4 font-black text-void transition hover:bg-[#73c9c7]">
                 {copy.footer.openTelegram}
               </a>
             </div>
