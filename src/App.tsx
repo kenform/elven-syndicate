@@ -56,7 +56,7 @@ const content = {
       { label: 'Showcase', href: '#showcase' },
       { label: 'Process', href: '#process' },
       { label: 'FAQ', href: '#faq' },
-      { label: 'Portfolio', href: 'https://kenform.ru' },
+      { label: 'Portfolio', href: 'https://portfolio-pi-snowy-53.vercel.app' },
       { label: 'Contact', href: '#contact' },
     ],
     hero: {
@@ -319,7 +319,7 @@ const content = {
       { label: 'Витрина', href: '#showcase' },
       { label: 'Процесс', href: '#process' },
       { label: 'FAQ', href: '#faq' },
-      { label: 'Портфолио', href: 'https://kenform.ru' },
+      { label: 'Портфолио', href: 'https://portfolio-pi-snowy-53.vercel.app' },
       { label: 'Контакты', href: '#contact' },
     ],
     hero: {
@@ -738,7 +738,7 @@ function Header({
           <a
             href="https://t.me/ElvenSyndicateStudio"
             onClick={closeMenu}
-            className="mt-6 inline-flex w-full items-center justify-center rounded-3xl bg-emerald px-6 py-5 text-base font-black text-void shadow-[0_0_50px_rgba(50,214,178,.22)] transition hover:bg-[#74e6cf]"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-3xl bg-emerald px-6 py-5 text-base font-black text-void shadow-[0_0_50px_rgba(47,189,164,.22)] transition hover:bg-[#86d7c9]"
           >
             {cta}
           </a>
@@ -754,7 +754,7 @@ function FAQAccordionItem({ item, index }: { item: FAQItem; index: number }) {
   return (
     <article
       className={`overflow-hidden rounded-[1.75rem] border bg-white/[0.04] backdrop-blur premium-focus-ring ${
-        isOpen ? 'border-emerald/35 shadow-[0_0_50px_rgba(50,214,178,.08)]' : 'border-white/10 hover:border-white/20'
+        isOpen ? 'border-emerald/35 shadow-[0_0_50px_rgba(47,189,164,.08)]' : 'border-white/10 hover:border-white/20'
       }`}
     >
       <button
@@ -766,7 +766,7 @@ function FAQAccordionItem({ item, index }: { item: FAQItem; index: number }) {
         <span className="text-lg font-semibold text-white sm:text-xl">{item.question}</span>
         <span
           className={`relative grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            isOpen ? 'border-emerald/45 bg-white/[0.10] shadow-[0_0_30px_rgba(50,214,178,.16)]' : 'border-white/15 bg-white/[0.08] hover:border-emerald/35'
+            isOpen ? 'border-emerald/45 bg-white/[0.10] shadow-[0_0_30px_rgba(47,189,164,.16)]' : 'border-white/15 bg-white/[0.08] hover:border-emerald/35'
           }`}
         >
           <span className={`absolute h-0.5 w-5 rounded-full bg-white transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'rotate-45' : 'rotate-0'}`} />
@@ -836,7 +836,7 @@ function ContactBrief({ copy, lang }: { copy: ContactCopy; lang: Lang }) {
 
         <button
           type="submit"
-          className="elven-cta inline-flex justify-center rounded-2xl bg-gradient-to-r from-[#b89a5f] via-[#6d55d8] to-[#32d6b2] px-5 py-4 text-sm font-black text-void transition duration-300 hover:shadow-[0_0_42px_rgba(139,92,246,.22)]"
+          className="elven-premium-button inline-flex justify-center rounded-2xl px-5 py-4 text-sm font-black text-white transition duration-500"
         >
           {copied ? copy.copied : copy.submit}
         </button>
@@ -963,7 +963,7 @@ function AssistantWidget({
               placeholder={copy.placeholder}
               className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none transition placeholder:text-mist/60 focus:border-emerald/50"
             />
-            <button type="submit" className="rounded-2xl bg-emerald px-4 py-3 text-sm font-black text-void transition hover:bg-[#74e6cf]">
+            <button type="submit" className="rounded-2xl bg-emerald px-4 py-3 text-sm font-black text-void transition hover:bg-[#86d7c9]">
               {copy.send}
             </button>
           </div>
@@ -977,7 +977,7 @@ function AssistantWidget({
       <button
         type="button"
         onClick={() => setIsOpen((value) => !value)}
-        className="flex items-center gap-3 rounded-full border border-emerald/30 bg-emerald px-5 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(50,214,178,.28)] transition hover:bg-[#74e6cf]"
+        className="flex items-center gap-3 rounded-full border border-emerald/30 bg-emerald px-5 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(47,189,164,.28)] transition hover:bg-[#86d7c9]"
         aria-label="Open AI assistant"
         aria-expanded={isOpen}
       >
@@ -1040,7 +1040,7 @@ function StudioConsole({ lang }: { lang: Lang }) {
         </div>
 
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 shadow-[0_0_80px_rgba(109,85,216,.10)] backdrop-blur">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(109,85,216,.18),transparent_32%),radial-gradient(circle_at_86%_80%,rgba(50,214,178,.12),transparent_36%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(109,85,216,.18),transparent_32%),radial-gradient(circle_at_86%_80%,rgba(47,189,164,.12),transparent_36%)]" />
           <div className="relative rounded-[1.5rem] border border-white/10 bg-black/30 p-5">
             <div className="mb-6 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
               <div>
@@ -1173,7 +1173,7 @@ function App() {
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta inline-flex w-full items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(50,214,178,.22)] transition hover:bg-[#74e6cf] sm:w-auto">
+                <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta inline-flex w-full items-center justify-center rounded-2xl bg-emerald px-6 py-4 text-sm font-black text-void shadow-[0_0_50px_rgba(47,189,164,.22)] transition hover:bg-[#86d7c9] sm:w-auto">
                   {copy.hero.primary}
                 </a>
                 <a href="#services" className="inline-flex w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-6 py-4 text-sm font-black text-white backdrop-blur transition hover:bg-white/10 sm:w-auto">
@@ -1360,7 +1360,7 @@ function App() {
               <div className="grid gap-4">
                 {copy.process.steps.map((item: ProcessStep, index: number) => (
                   <article key={item.title} className="group relative pl-16">
-                    <div className="absolute left-6 top-7 h-4 w-4 -translate-x-1/2 rounded-full border border-emerald/45 bg-void shadow-[0_0_24px_rgba(50,214,178,.28)]" />
+                    <div className="absolute left-6 top-7 h-4 w-4 -translate-x-1/2 rounded-full border border-emerald/45 bg-void shadow-[0_0_24px_rgba(47,189,164,.28)]" />
                     <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 group-hover:-translate-y-1 group-hover:border-emerald/30">
                       <div className="mb-4 flex flex-wrap items-center gap-3">
                         <span className="text-xs font-black uppercase tracking-[0.28em] text-gold">
@@ -1469,7 +1469,7 @@ function App() {
                   </span>
                 ))}
               </div>
-              <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta mt-6 inline-flex w-full justify-center rounded-2xl bg-emerald px-5 py-4 font-black text-void transition hover:bg-[#74e6cf]">
+              <a href="https://t.me/ElvenSyndicateStudio" className="elven-cta mt-6 inline-flex w-full justify-center rounded-2xl bg-emerald px-5 py-4 font-black text-void transition hover:bg-[#86d7c9]">
                 {copy.footer.openTelegram}
               </a>
             </div>
