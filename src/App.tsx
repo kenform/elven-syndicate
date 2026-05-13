@@ -53,6 +53,7 @@ const content = {
       { label: 'About', href: '#about' },
       { label: 'Services', href: '#services' },
       { label: 'Systems', href: '#business' },
+      { label: 'Showcase', href: '#showcase' },
       { label: 'Process', href: '#process' },
       { label: 'FAQ', href: '#faq' },
       { label: 'Portfolio', href: 'https://kenform.ru' },
@@ -315,6 +316,7 @@ const content = {
       { label: 'О проекте', href: '#about' },
       { label: 'Услуги', href: '#services' },
       { label: 'Системы', href: '#business' },
+      { label: 'Витрина', href: '#showcase' },
       { label: 'Процесс', href: '#process' },
       { label: 'FAQ', href: '#faq' },
       { label: 'Портфолио', href: 'https://kenform.ru' },
@@ -986,6 +988,143 @@ function AssistantWidget({
   );
 }
 
+
+function StudioConsole({ lang }: { lang: Lang }) {
+  const t = lang === 'ru'
+    ? {
+        label: 'Live System',
+        title: 'Как заявка проходит через digital-систему.',
+        text: 'Визуальная демонстрация будущей логики: сайт не просто красиво выглядит, а постепенно ведёт человека к понятному запросу.',
+        action: 'Telegram handoff готов',
+        status: 'System online',
+        result: 'Запрос подготовлен',
+        pipeline: [
+          ['01', 'Первое касание', 'Посетитель понимает стиль, услугу и уровень подачи.'],
+          ['02', 'Интерес', 'Hero, услуги и визуальные блоки объясняют ценность без перегруза.'],
+          ['03', 'Квалификация', 'AI-ассистент или форма собирают нишу, цель и контекст.'],
+          ['04', 'Передача', 'Клиент переходит в Telegram уже с понятной задачей.'],
+        ],
+        chips: ['Website', 'AI assistant', 'Telegram', 'Brief'],
+      }
+    : {
+        label: 'Live System',
+        title: 'How a request moves through the digital system.',
+        text: 'A visual demonstration of the future flow: the site does not only look premium, it quietly guides a visitor toward a clear request.',
+        action: 'Telegram handoff ready',
+        status: 'System online',
+        result: 'Request prepared',
+        pipeline: [
+          ['01', 'First impression', 'The visitor understands the style, service and quality level.'],
+          ['02', 'Interest', 'Hero, services and visual blocks explain value without overload.'],
+          ['03', 'Qualification', 'AI assistant or form collects niche, goal and project context.'],
+          ['04', 'Handoff', 'The client moves to Telegram with a clear task, not an empty hello.'],
+        ],
+        chips: ['Website', 'AI assistant', 'Telegram', 'Brief'],
+      };
+
+  return (
+    <section id="showcase" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <SectionLabel>{t.label}</SectionLabel>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">{t.title}</h2>
+          <p className="mt-5 text-lg leading-8 text-mist">{t.text}</p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {t.chips.map((chip) => (
+              <span key={chip} className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-white">
+                {chip}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 shadow-[0_0_80px_rgba(109,85,216,.10)] backdrop-blur">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(109,85,216,.18),transparent_32%),radial-gradient(circle_at_86%_80%,rgba(50,214,178,.12),transparent_36%)]" />
+          <div className="relative rounded-[1.5rem] border border-white/10 bg-black/30 p-5">
+            <div className="mb-6 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">{t.status}</p>
+                <p className="mt-2 text-xl font-semibold text-white">Elven workflow</p>
+              </div>
+              <span className="rounded-full border border-emerald/25 bg-emerald/10 px-4 py-2 text-xs font-black text-emerald">
+                live
+              </span>
+            </div>
+
+            <div className="grid gap-3">
+              {t.pipeline.map(([number, title, text]) => (
+                <article key={number} className="group grid gap-4 rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition duration-300 hover:border-violet/35 hover:bg-violet/10 sm:grid-cols-[4rem_1fr]">
+                  <div className="grid h-12 w-12 place-items-center rounded-2xl border border-gold/25 bg-gold/10 text-sm font-black text-gold">
+                    {number}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white">{title}</h3>
+                    <p className="mt-1 text-sm leading-6 text-mist">{text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-emerald/25 bg-emerald/10 p-4">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald">{t.action}</p>
+              <p className="mt-2 text-sm text-mist">{t.result}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ResultCards({ lang }: { lang: Lang }) {
+  const t = lang === 'ru'
+    ? {
+        label: 'Results',
+        title: 'Карточки результата вместо пустых отзывов.',
+        text: 'Пока нет реальных клиентских отзывов, честнее показывать ожидаемые эффекты системы. Позже этот блок заменим настоящими кейсами и цитатами.',
+        cards: [
+          ['Понятнее заявка', 'Посетитель приходит в Telegram не с пустым “привет”, а с нишей, задачей и ожиданием.'],
+          ['Дороже восприятие', 'Сайт выглядит как самостоятельный бренд, а не как случайный шаблон из блоков.'],
+          ['Быстрее старт', 'Структура уже готова под реальные тексты, кейсы, аналитику и AI-интеграцию.'],
+        ],
+      }
+    : {
+        label: 'Results',
+        title: 'Result cards instead of empty testimonials.',
+        text: 'Until there are real client testimonials, the honest move is to show expected system outcomes. Later this section can become real cases and quotes.',
+        cards: [
+          ['Clearer request', 'The visitor enters Telegram with niche, goal and context — not just an empty hello.'],
+          ['Premium perception', 'The site feels like a standalone brand, not a random collection of landing blocks.'],
+          ['Faster iteration', 'The structure is ready for real copy, cases, analytics and AI integration.'],
+        ],
+      };
+
+  return (
+    <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mb-10 max-w-3xl">
+        <SectionLabel>{t.label}</SectionLabel>
+        <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">{t.title}</h2>
+        <p className="mt-5 text-lg leading-8 text-mist">{t.text}</p>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-3">
+        {t.cards.map(([title, text], index) => (
+          <article key={title} className="group relative min-h-64 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-gold/35">
+            <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gold/10 blur-3xl transition group-hover:bg-violet/15" />
+            <div className="relative">
+              <p className="mb-10 text-sm font-black text-gold">0{index + 1}</p>
+              <h3 className="text-2xl font-semibold text-white">{title}</h3>
+              <p className="mt-5 leading-7 text-mist">{text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
 function App() {
   const [lang, setLang] = useState<Lang>(() => {
     if (typeof window === 'undefined') return 'en';
@@ -1185,6 +1324,8 @@ function App() {
           </div>
         </section>
 
+        <StudioConsole lang={lang} />
+
         <section id="cases" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="mb-10 max-w-3xl">
             <SectionLabel>{copy.cases.label}</SectionLabel>
@@ -1255,6 +1396,8 @@ function App() {
             ))}
           </div>
         </section>
+
+        <ResultCards lang={lang} />
 
         <section id="faq" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
