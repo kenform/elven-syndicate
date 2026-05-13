@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
@@ -12,38 +14,106 @@ const features = [
   'Fast adaptive interfaces',
 ];
 
+function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
+  return (
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-void/75 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
+        <a href="#" onClick={closeMenu} className="group inline-flex items-center gap-3" aria-label="Elven Syndicate Studio home">
+          <span className="grid h-10 w-10 place-items-center rounded-2xl border border-emerald/30 bg-white/5 text-sm font-black text-gold shadow-arcane">
+            ES
+          </span>
+          <span className="leading-tight">
+            <span className="block text-sm font-semibold tracking-[0.22em] text-white">ELVEN</span>
+            <span className="block text-xs uppercase tracking-[0.28em] text-mist">Syndicate Studio</span>
+          </span>
+        </a>
+
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} className="text-sm font-medium text-mist transition hover:text-white">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <a
+          href="https://t.me/ElvenSyndicateStudio"
+          className="hidden rounded-full border border-emerald/30 bg-emerald/10 px-5 py-3 text-sm font-semibold text-emerald transition hover:bg-emerald hover:text-void md:inline-flex"
+        >
+          Start a project
+        </a>
+
+        <button
+          type="button"
+          className="relative z-[70] grid h-11 w-11 place-items-center rounded-2xl border border-white/15 bg-white/5 text-white md:hidden"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((value) => !value)}
+        >
+          <span className="relative h-4 w-5">
+            <span className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-current transition ${isMenuOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
+            <span className={`absolute left-0 top-[7px] h-0.5 w-5 rounded-full bg-current transition ${isMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`absolute left-0 top-[14px] h-0.5 w-5 rounded-full bg-current transition ${isMenuOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
+          </span>
+        </button>
+      </div>
+
+      <div
+        className={`fixed inset-0 z-[55] bg-black/60 backdrop-blur-sm transition md:hidden ${isMenuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
+      <aside
+        className={`fixed right-4 top-24 z-[60] w-[calc(100%-2rem)] max-w-sm rounded-[1.75rem] border border-white/10 bg-obsidian/95 p-5 shadow-violet transition md:hidden ${
+          isMenuOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0'
+        }`}
+      >
+        <nav className="grid gap-2" aria-label="Mobile navigation">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} onClick={closeMenu} className="rounded-2xl px-4 py-4 text-base font-semibold text-white transition hover:bg-white/10">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <a
+          href="https://t.me/ElvenSyndicateStudio"
+          onClick={closeMenu}
+          className="mt-5 inline-flex w-full justify-center rounded-2xl bg-emerald px-5 py-4 text-sm font-bold text-void transition hover:bg-[#68ffd5]"
+        >
+          Start a project
+        </a>
+      </aside>
+    </header>
+  );
+}
+
 function App() {
   return (
     <main className="min-h-screen overflow-hidden bg-void text-parchment">
-      <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-void/72 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-          <a href="#" className="group inline-flex items-center gap-3" aria-label="Elven Syndicate Studio home">
-            <span className="grid h-10 w-10 place-items-center rounded-2xl border border-emerald/30 bg-white/5 text-sm font-black text-gold shadow-arcane">
-              ES
-            </span>
-            <span className="leading-tight">
-              <span className="block text-sm font-semibold tracking-[0.22em] text-white">ELVEN</span>
-              <span className="block text-xs uppercase tracking-[0.28em] text-mist">Syndicate Studio</span>
-            </span>
-          </a>
-
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-            {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="text-sm font-medium text-mist transition hover:text-white">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <a href="https://t.me/ElvenSyndicateStudio" className="hidden rounded-full border border-emerald/30 bg-emerald/10 px-5 py-3 text-sm font-semibold text-emerald transition hover:bg-emerald hover:text-void md:inline-flex">
-            Start a project
-          </a>
-
-          <a href="https://t.me/ElvenSyndicateStudio" className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white md:hidden">
-            TG
-          </a>
-        </div>
-      </header>
+      <Header />
 
       <section className="relative isolate flex min-h-screen items-center px-5 pb-20 pt-32 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 -z-10">
