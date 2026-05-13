@@ -417,65 +417,6 @@ html {
   background: rgba(5, 6, 10, 0.98);
 }
 
-/* Header nav: bigger hit-area + center-out underline like portfolio */
-header nav a,
-header nav button {
-  position: relative;
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-  padding: 0.65rem 0.92rem;
-  border-radius: 999px;
-  color: rgba(214, 222, 236, 0.82);
-  transition:
-    color 360ms cubic-bezier(0.22, 1, 0.36, 1),
-    background 360ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-header nav a::after,
-header nav button::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0.28rem;
-  width: 62%;
-  height: 4px;
-  border-radius: 999px;
-  background:
-    linear-gradient(90deg, transparent, rgba(79, 202, 199, 0.98), rgba(79, 202, 199, 0.98), transparent);
-  box-shadow: 0 0 18px rgba(79, 202, 199, 0.32);
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-  opacity: 0;
-  transition:
-    transform 430ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 430ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 430ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-header nav a:hover,
-header nav button:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.035);
-}
-
-header nav a:hover::after,
-header nav button:hover::after,
-header nav a[aria-current="page"]::after,
-header nav button[aria-current="page"]::after,
-header nav a.active::after,
-header nav button.active::after {
-  transform: translateX(-50%) scaleX(1);
-  opacity: 1;
-}
-
-header nav a:active,
-header nav button:active {
-  transform: translateY(1px);
-}
-
 /* Floating assistant button — calmer premium cyan */
 .assistant-launch-button {
   background:
@@ -661,93 +602,39 @@ html {
 }
 
 
+/* FINAL CLEAN: header nav and contact CTA */
 
-/* Одна чистая линия из центра в стороны */
-header nav a::after,
-header nav button::after {
-  content: "" !important;
-  position: absolute !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: 5px !important;
-  width: 58% !important;
-  height: 4px !important;
-  border-radius: 999px !important;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(76, 199, 196, 0.15) 8%,
-      rgba(92, 218, 214, 0.95) 50%,
-      rgba(76, 199, 196, 0.15) 92%,
-      transparent 100%
-    ) !important;
-  box-shadow:
-    0 0 14px rgba(92, 218, 214, 0.42),
-    0 0 28px rgba(92, 218, 214, 0.16) !important;
-  opacity: 0 !important;
-  transform: translateX(-50%) scaleX(0) !important;
-  transform-origin: center !important;
-  transition:
-    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 320ms cubic-bezier(0.22, 1, 0.36, 1) !important;
-  pointer-events: none !important;
-}
-
-/* Актив/hover — без плашки, только линия */
-header nav a:hover::after,
-header nav button:hover::after,
-header nav a:focus-visible::after,
-header nav button:focus-visible::after,
-header nav a.active::after,
-header nav button.active::after,
-header nav a[aria-current="page"]::after,
-header nav button[aria-current="page"]::after,
-header nav a[class*="bg-white"]::after,
-header nav button[class*="bg-white"]::after {
-  opacity: 1 !important;
-  transform: translateX(-50%) scaleX(1) !important;
-}
-
-/* Чуть больше зона наведения, но без ломания шапки */
-@media (min-width: 1024px) {
-  header nav {
-    gap: 0.18rem !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  header nav a::after,
-  header nav button::after {
-    transition: none !important;
-  }
-}
-
-
-/* FIX PATCH: hover-only portfolio nav underline */
+/* Header: no active glow, no permanent underline, only one hover line */
 header nav a,
 header nav button {
   position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 44px !important;
-  padding: 0.62rem 0.78rem !important;
+  min-height: 42px !important;
+  padding: 0.58rem 0.74rem !important;
   border-radius: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
-  transition: color 260ms ease, opacity 260ms ease !important;
+  color: rgba(214, 222, 236, 0.82) !important;
+  overflow: visible !important;
+  transition:
+    color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 260ms cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
-/* Убираем старые JSX-линии/плашки */
-header nav a > span.absolute,
-header nav button > span.absolute,
+/* Hide old inner Tailwind decorative spans inside nav links */
 header nav a > span[class*="absolute"],
-header nav button > span[class*="absolute"] {
+header nav button > span[class*="absolute"],
+header nav a > span[class*="bottom"],
+header nav button > span[class*="bottom"],
+header nav a > span[class*="shadow"],
+header nav button > span[class*="shadow"] {
   display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
-/* Без круглого hover/active-фона */
 header nav a:hover,
 header nav button:hover,
 header nav a:focus-visible,
@@ -760,35 +647,40 @@ header nav button[aria-current="page"] {
   box-shadow: none !important;
 }
 
-/* Линия скрыта по умолчанию */
+header nav a::before,
+header nav button::before,
 header nav a::after,
 header nav button::after {
   content: "" !important;
   position: absolute !important;
   left: 50% !important;
-  bottom: 7px !important;
-  width: 70% !important;
-  height: 3px !important;
+  bottom: 4px !important;
+  width: 34px !important;
+  height: 2px !important;
   border-radius: 999px !important;
+  background: rgba(88, 210, 207, 0.9) !important;
+  box-shadow: 0 0 10px rgba(88, 210, 207, 0.24) !important;
+  opacity: 0 !important;
   transform: translateX(-50%) scaleX(0) !important;
   transform-origin: center !important;
-  opacity: 0 !important;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(75, 201, 197, 0.28) 16%,
-    rgba(92, 218, 214, 0.92) 50%,
-    rgba(75, 201, 197, 0.28) 84%,
-    transparent 100%
-  ) !important;
-  box-shadow: 0 0 14px rgba(92, 218, 214, 0.28) !important;
   pointer-events: none !important;
   transition:
-    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 240ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
-/* Только при наведении/фокусе */
+header nav a::before,
+header nav button::before {
+  display: none !important;
+}
+
+header nav a:hover,
+header nav button:hover,
+header nav a:focus-visible,
+header nav button:focus-visible {
+  color: #ffffff !important;
+}
+
 header nav a:hover::after,
 header nav button:hover::after,
 header nav a:focus-visible::after,
@@ -797,102 +689,54 @@ header nav button:focus-visible::after {
   transform: translateX(-50%) scaleX(1) !important;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  header nav a::after,
-  header nav button::after {
-    transition: none !important;
-  }
-}
-
-
-/* ABSOLUTE FIX: header hover line only */
-
-/* 1) Прячем ВСЕ старые линии/декор внутри nav, которые могли остаться из JSX/Tailwind */
-html body header nav a [class*="absolute"],
-html body header nav button [class*="absolute"],
-html body header nav a [class*="bottom"],
-html body header nav button [class*="bottom"],
-html body header nav a [class*="shadow"],
-html body header nav button [class*="shadow"] {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-/* 2) Убираем плашки/кружки/фон у пунктов */
-html body header nav a,
-html body header nav button {
-  position: relative !important;
+/* Contact form button: lower, cleaner, white text */
+.elven-premium-button {
   display: inline-flex !important;
+  min-height: 58px !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 42px !important;
-  padding: 0.58rem 0.72rem !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-}
-
-html body header nav a:hover,
-html body header nav button:hover,
-html body header nav a:focus-visible,
-html body header nav button:focus-visible,
-html body header nav a.active,
-html body header nav button.active,
-html body header nav a[aria-current="page"],
-html body header nav button[aria-current="page"],
-html body header nav a[class*="bg-white"],
-html body header nav button[class*="bg-white"] {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-/* 3) По умолчанию линия полностью выключена */
-html body header nav a::before,
-html body header nav button::before,
-html body header nav a::after,
-html body header nav button::after {
-  content: "" !important;
-  position: absolute !important;
-  left: 50% !important;
-  right: auto !important;
-  bottom: 4px !important;
-  width: 34px !important;
-  height: 2px !important;
-  border-radius: 999px !important;
-  background: rgba(90, 218, 214, 0.88) !important;
-  box-shadow: 0 0 10px rgba(90, 218, 214, 0.28) !important;
-  opacity: 0 !important;
-  display: block !important;
-  transform: translateX(-50%) scaleX(0) !important;
-  transform-origin: center !important;
-  pointer-events: none !important;
+  margin-top: 1.05rem !important;
+  padding: 0 1.45rem !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(104, 219, 216, 0.38) !important;
+  background:
+    linear-gradient(135deg, rgba(38, 142, 148, 0.98), rgba(62, 185, 181, 0.94)) !important;
+  color: #f7fffe !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.28) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    0 18px 44px rgba(0,0,0,.26),
+    0 0 34px rgba(70,188,186,.13) !important;
   transition:
-    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 180ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
-/* 4) На НЕ-hover принудительно скрываем даже если старые классы пытаются включить */
-html body header nav a:not(:hover):not(:focus-visible)::before,
-html body header nav button:not(:hover):not(:focus-visible)::before,
-html body header nav a:not(:hover):not(:focus-visible)::after,
-html body header nav button:not(:hover):not(:focus-visible)::after {
-  opacity: 0 !important;
-  transform: translateX(-50%) scaleX(0) !important;
+.elven-premium-button:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(122, 235, 231, 0.58) !important;
+  background:
+    linear-gradient(135deg, rgba(45, 158, 164, 1), rgba(76, 202, 198, 0.96)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 24px 58px rgba(0,0,0,.30),
+    0 0 44px rgba(70,188,186,.20) !important;
 }
 
-/* 5) Показываем только при наведении */
-html body header nav a:hover::after,
-html body header nav button:hover::after,
-html body header nav a:focus-visible::after,
-html body header nav button:focus-visible::after {
-  opacity: 1 !important;
-  transform: translateX(-50%) scaleX(1) !important;
+.elven-premium-button:active {
+  transform: translateY(0) scale(0.995) !important;
 }
 
-/* before вообще не используем, чтобы не было двойной линии */
-html body header nav a::before,
-html body header nav button::before {
-  display: none !important;
+@media (prefers-reduced-motion: reduce) {
+  header nav a::after,
+  header nav button::after,
+  .elven-premium-button {
+    transition: none !important;
+  }
+
+  .elven-premium-button:hover {
+    transform: none !important;
+  }
 }
