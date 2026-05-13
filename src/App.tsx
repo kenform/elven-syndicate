@@ -11,6 +11,7 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Stack', href: '#stack' },
+  { label: 'Cases', href: '#cases' },
   { label: 'Process', href: '#process' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -26,6 +27,24 @@ const services = [
   { title: 'AI sales assistants', text: 'Assistant widgets that answer questions, collect client context, qualify leads and prepare requests before you reply.' },
   { title: 'Telegram funnels', text: 'Simple conversion paths where visitors move from the website into Telegram with a clear task, budget and project brief.' },
   { title: 'Portfolio & brand systems', text: 'Personal and studio websites with memorable visuals, reusable components and a style that feels like a real brand.' },
+];
+
+const caseStudies = [
+  {
+    title: 'AI-ready landing',
+    text: 'A premium website concept where the assistant explains the offer, collects project context and moves the visitor to Telegram.',
+    metric: 'Lead flow',
+  },
+  {
+    title: 'Expert portfolio',
+    text: 'A visual identity and portfolio-grade presentation for a developer, studio or specialist who wants to look more expensive.',
+    metric: 'Brand trust',
+  },
+  {
+    title: 'Telegram-first funnel',
+    text: 'A simple path from first impression to conversation: clear CTA, quick qualification and handoff into Telegram.',
+    metric: 'Fast contact',
+  },
 ];
 
 const stack = ['React', 'TypeScript', 'Vite', 'Tailwind', 'Vercel', 'Telegram', 'AI widgets', 'SEO'];
@@ -446,6 +465,31 @@ function App() {
                 Crystals, runes and holographic UI details become part of the brand system: premium enough for a studio, readable enough for a real business landing page.
               </p>
             </div>
+          </div>
+        </section>
+
+
+        <section id="cases" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="mb-10 max-w-3xl">
+            <SectionLabel>Cases</SectionLabel>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-5xl">
+              Built for websites that need more than a pretty screen.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-mist">
+              These are the first scenarios for the project. Later we can replace them with real cases, screenshots, numbers and client-style stories.
+            </p>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-3">
+            {caseStudies.map((item) => (
+              <article key={item.title} className="group rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:-translate-y-1 hover:border-violet/35">
+                <p className="mb-8 inline-flex rounded-full border border-violet/25 bg-violet/10 px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-violet">
+                  {item.metric}
+                </p>
+                <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
+                <p className="mt-4 leading-7 text-mist">{item.text}</p>
+              </article>
+            ))}
           </div>
         </section>
 
