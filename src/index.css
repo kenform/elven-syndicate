@@ -661,46 +661,6 @@ html {
 }
 
 
-/* CLEAN PATCH: portfolio style header underline only */
-header nav a,
-header nav button {
-  position: relative !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 46px !important;
-  padding: 0.7rem 0.82rem !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  isolation: isolate;
-  transition:
-    color 280ms ease,
-    opacity 280ms ease !important;
-}
-
-/* Убираем старую внутреннюю линию/плашку, если она есть в JSX */
-header nav a > span.absolute,
-header nav button > span.absolute,
-header nav a > span[class*="absolute"],
-header nav button > span[class*="absolute"] {
-  display: none !important;
-}
-
-/* Убираем круглое выделение активного/hover пункта */
-header nav a:hover,
-header nav button:hover,
-header nav a:focus-visible,
-header nav button:focus-visible,
-header nav a.active,
-header nav button.active,
-header nav a[aria-current="page"],
-header nav button[aria-current="page"],
-header nav a[class*="bg-white"],
-header nav button[class*="bg-white"] {
-  background: transparent !important;
-  box-shadow: none !important;
-}
 
 /* Одна чистая линия из центра в стороны */
 header nav a::after,
@@ -754,6 +714,87 @@ header nav button[class*="bg-white"]::after {
   header nav {
     gap: 0.18rem !important;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header nav a::after,
+  header nav button::after {
+    transition: none !important;
+  }
+}
+
+
+/* FIX PATCH: hover-only portfolio nav underline */
+header nav a,
+header nav button {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 44px !important;
+  padding: 0.62rem 0.78rem !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: color 260ms ease, opacity 260ms ease !important;
+}
+
+/* Убираем старые JSX-линии/плашки */
+header nav a > span.absolute,
+header nav button > span.absolute,
+header nav a > span[class*="absolute"],
+header nav button > span[class*="absolute"] {
+  display: none !important;
+}
+
+/* Без круглого hover/active-фона */
+header nav a:hover,
+header nav button:hover,
+header nav a:focus-visible,
+header nav button:focus-visible,
+header nav a.active,
+header nav button.active,
+header nav a[aria-current="page"],
+header nav button[aria-current="page"] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Линия скрыта по умолчанию */
+header nav a::after,
+header nav button::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 7px !important;
+  width: 70% !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  transform: translateX(-50%) scaleX(0) !important;
+  transform-origin: center !important;
+  opacity: 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(75, 201, 197, 0.28) 16%,
+    rgba(92, 218, 214, 0.92) 50%,
+    rgba(75, 201, 197, 0.28) 84%,
+    transparent 100%
+  ) !important;
+  box-shadow: 0 0 14px rgba(92, 218, 214, 0.28) !important;
+  pointer-events: none !important;
+  transition:
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Только при наведении/фокусе */
+header nav a:hover::after,
+header nav button:hover::after,
+header nav a:focus-visible::after,
+header nav button:focus-visible::after {
+  opacity: 1 !important;
+  transform: translateX(-50%) scaleX(1) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
