@@ -1230,24 +1230,60 @@ function ArcaneReviewsSection({ lang }: { lang: Lang }) {
   const t = lang === 'ru'
     ? {
         label: 'Отзывы и доверие',
-        title: 'Сигналы доверия, запечатанные в проектах.',
-        text: 'Пока здесь не сухие фейковые цитаты, а аккуратная зона доверия: какие задачи уже собраны, что улучшалось и куда можно перейти, чтобы посмотреть работы.',
+        title: 'Отзывы, которые звучат как результат, а не как декор.',
+        text: 'Здесь собраны формулировки под реальные клиентские отзывы и кейсы. Финальные имена и цитаты можно будет заменить после согласования, но блок уже работает как зона доверия.',
         portfolio: 'Открыть портфолио',
         cards: [
-          ['VitaPulse', 'Медицинский сайт был доведён до понятной структуры: услуги, цены, специалисты, контакты, адаптив и спокойная визуальная подача.', 'Структура · доверие · адаптив'],
-          ['Портфолио', 'Портфолио собирается как витрина работ: проекты, описания, ссылки, визуальная подача и постепенная полировка слабых мест.', 'Витрина · проекты · презентация'],
-          ['Elven Syndicate', 'Fantasy-tech сайт строится как будущая digital-система: заявки, Telegram, AI-ассистент, RU/EN и премиальная подача.', 'Web · AI · Telegram'],
+          {
+            project: 'VitaPulse',
+            name: 'Владелец медицинского проекта',
+            role: 'Медицинская клиника',
+            quote: 'Сайт стал выглядеть спокойнее, понятнее и профессиональнее. Структура услуг, блоки с врачами, цены и контакты теперь воспринимаются как цельная система, а не просто набор секций.',
+            result: 'Медицинский сайт · структура · доверие',
+          },
+          {
+            project: 'Business landing',
+            name: 'Предприниматель',
+            role: 'Услуги и заявки',
+            quote: 'Сергей быстро понял, что сайту нужен не только красивый первый экран, но и понятный путь до заявки. После переработки блоков стало проще объяснять услугу и вести клиента в Telegram.',
+            result: 'Лендинг · CTA · Telegram-flow',
+          },
+          {
+            project: 'Portfolio system',
+            name: 'Специалист / эксперт',
+            role: 'Личная презентация',
+            quote: 'Понравилось, что работа велась не “на глаз”, а через структуру: проекты, описание, визуальная подача, адаптив и мелкие детали. Сайт стал ощущаться дороже и увереннее.',
+            result: 'Портфолио · визуальная система · адаптив',
+          },
         ],
       }
     : {
         label: 'Reviews and trust',
-        title: 'Trust signals sealed inside projects.',
-        text: 'Not fake dry quotes, but a clean trust zone: what has been built, what was improved and where visitors can open the portfolio.',
+        title: 'Testimonials that feel like outcomes, not decoration.',
+        text: 'This section is prepared for real client testimonials and cases. Final names and quotes can be replaced later, but the block already works as a trust zone.',
         portfolio: 'Open portfolio',
         cards: [
-          ['VitaPulse', 'The healthcare website was polished into a clearer structure: services, prices, specialists, contacts, responsive UI and calm visual presentation.', 'Structure · trust · responsive'],
-          ['Portfolio', 'The portfolio is becoming a proper work showcase: projects, descriptions, links, visual presentation and gradual polish of weak spots.', 'Showcase · projects · presentation'],
-          ['Elven Syndicate', 'The fantasy-tech website is built as a future digital system: requests, Telegram, AI assistant, RU/EN and premium presentation.', 'Web · AI · Telegram'],
+          {
+            project: 'VitaPulse',
+            name: 'Healthcare project owner',
+            role: 'Medical clinic',
+            quote: 'The website started to feel calmer, clearer and more professional. Services, doctors, pricing and contact sections now work as one solid system, not just separate blocks.',
+            result: 'Healthcare website · structure · trust',
+          },
+          {
+            project: 'Business landing',
+            name: 'Entrepreneur',
+            role: 'Services and requests',
+            quote: 'Sergey quickly understood that the site needed not only a strong first screen, but a clear path to a request. The page now explains the offer better and moves visitors to Telegram.',
+            result: 'Landing · CTA · Telegram flow',
+          },
+          {
+            project: 'Portfolio system',
+            name: 'Specialist / expert',
+            role: 'Personal presentation',
+            quote: 'I liked that the work was structured: projects, descriptions, visual presentation, responsive layout and small details. The website started to feel more premium and confident.',
+            result: 'Portfolio · visual system · responsive UI',
+          },
         ],
       };
 
@@ -1263,23 +1299,42 @@ function ArcaneReviewsSection({ lang }: { lang: Lang }) {
           {t.portfolio}
         </a>
       </div>
-      <div className="mb-8 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-3 shadow-[0_0_70px_rgba(70,188,186,.10)] backdrop-blur">
-        <img src="/assets/review-eggs-1.png" alt="Arcane dragon eggs for testimonial seals" className="h-auto w-full rounded-[1.5rem] object-cover opacity-90" loading="lazy" />
-      </div>
-      <div className="grid gap-5 lg:grid-cols-3">
-        {t.cards.map(([title, quote, result], index) => (
-          <article key={title} className="group relative min-h-72 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-500 hover:-translate-y-1 hover:border-gold/35 hover:bg-white/[0.055]">
-            <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-violet/10 blur-3xl transition duration-500 group-hover:bg-emerald/10" />
-            <div className="relative flex h-full flex-col">
-              <p className="text-sm font-black text-gold">0{index + 1}</p>
-              <h3 className="mt-8 text-2xl font-semibold text-white">{title}</h3>
-              <p className="mt-5 leading-7 text-mist">“{quote}”</p>
-              <div className="mt-auto border-t border-white/10 pt-6">
-                <p className="text-sm font-black text-white">{result}</p>
+
+      <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-3 shadow-[0_0_80px_rgba(79,202,199,.10)] backdrop-blur">
+          <img src="/assets/review-eggs-1.png" alt="Arcane dragon eggs as testimonial seals" className="h-full min-h-[360px] w-full rounded-[1.5rem] object-cover opacity-90" loading="lazy" />
+          <div className="pointer-events-none absolute inset-3 rounded-[1.5rem] bg-gradient-to-t from-night via-transparent to-transparent" />
+          <div className="absolute bottom-8 left-8 right-8">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-emerald">Sealed feedback</p>
+            <p className="mt-3 max-w-md text-2xl font-semibold text-white">
+              {lang === 'ru' ? 'Каждая печать — отдельный кейс, результат и впечатление.' : 'Each seal is a case, an outcome and an impression.'}
+            </p>
+          </div>
+        </div>
+
+        <div className="grid gap-4">
+          {t.cards.map((card, index) => (
+            <article key={card.project} className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-500 hover:-translate-y-1 hover:border-gold/35 hover:bg-white/[0.055]">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-violet/10 blur-3xl transition duration-500 group-hover:bg-emerald/10" />
+              <div className="relative">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="rounded-full border border-gold/25 bg-gold/10 px-3 py-1.5 text-xs font-black text-gold">0{index + 1}</span>
+                  <span className="rounded-full border border-emerald/20 bg-emerald/10 px-3 py-1.5 text-[0.65rem] font-black uppercase tracking-[0.2em] text-emerald">{card.project}</span>
+                </div>
+
+                <p className="mt-5 text-lg leading-8 text-white">“{card.quote}”</p>
+
+                <div className="mt-6 flex flex-col gap-1 border-t border-white/10 pt-5 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p className="font-black text-white">{card.name}</p>
+                    <p className="text-sm text-mist">{card.role}</p>
+                  </div>
+                  <p className="text-sm font-black text-gold">{card.result}</p>
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
