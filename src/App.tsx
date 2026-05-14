@@ -1857,6 +1857,7 @@ function App() {
 
         <ArcaneReviewsSection lang={lang} />
 
+        <SelectedWorksSection lang={lang} />
         <section id="faq" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
@@ -1942,7 +1943,6 @@ function App() {
 
         <AssistantWidget copy={copy.assistant} />
       </div>
-        <SelectedWorksSection lang={lang} />
 </main>
   );
 }
