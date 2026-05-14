@@ -845,6 +845,121 @@ function ContactBrief({ copy, lang }: { copy: ContactCopy; lang: Lang }) {
   );
 }
 
+
+// SELECTED_WORKS_SECTION_START
+function SelectedWorksSection({ lang }: { lang: Lang }) {
+  const isRu = lang === 'ru';
+  const portfolioUrl = 'https://portfolio-pi-snowy-53.vercel.app/#/projects';
+
+  const works = [
+    {
+      title: 'Elven Syndicate',
+      type: isRu ? 'Fantasy-tech студия' : 'Fantasy-tech studio',
+      date: isRu ? 'Май 2026' : 'May 2026',
+      image: assets.hero,
+      fallback: assets.hero,
+      text: isRu
+        ? 'Премиальный сайт студии с dark fantasy визуалом, AI-ассистентом, Telegram-first заявками, bilingual-интерфейсом, опытом и trust-блоками.'
+        : 'A premium studio website with dark fantasy visuals, AI assistant layer, Telegram-first requests, bilingual interface and trust blocks.',
+      result: isRu ? 'Айдентика · AI · заявки' : 'Identity · AI · leads',
+      tags: ['React', 'TypeScript', 'Tailwind', 'Vercel', 'AI'],
+      href: 'https://elven-syndicate.vercel.app/',
+    },
+    {
+      title: 'VitaPulse',
+      type: isRu ? 'Медицинский лендинг' : 'Medical landing',
+      date: isRu ? 'Май 2026' : 'May 2026',
+      image: '/assets/work-vitapulse.png',
+      fallback: assets.core,
+      text: isRu
+        ? 'Спокойный медицинский лендинг с понятной структурой, услугами, ценами, специалистами и визуальной подачей, которая вызывает доверие.'
+        : 'A calm medical landing page with clear structure, services, prices, specialists and a visual system focused on trust.',
+      result: isRu ? 'Медицина · структура · запись' : 'Medical · structure · booking',
+      tags: ['HTML', 'CSS', 'JavaScript', 'Responsive'],
+      href: portfolioUrl,
+    },
+    {
+      title: 'React Pizza',
+      type: isRu ? 'Интерфейс магазина' : 'Shop interface',
+      date: isRu ? 'Авг 2023' : 'Aug 2023',
+      image: '/assets/work-pizza.png',
+      fallback: assets.background,
+      text: isRu
+        ? 'Интерфейс магазина с каталогом, фильтрами, сортировкой, пагинацией, страницами товаров и корзиной. Проект доведён до портфолио.'
+        : 'A shop interface with catalog, filters, sorting, pagination, product pages and cart logic, polished for portfolio presentation.',
+      result: isRu ? 'Каталог · фильтры · корзина' : 'Catalog · filters · cart',
+      tags: ['React', 'Redux Toolkit', 'Router', 'API'],
+      href: portfolioUrl,
+    },
+  ];
+
+  return (
+    <section id="works" className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8">
+      <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-3xl">
+          <SectionLabel>{isRu ? 'Избранные работы' : 'Selected works'}</SectionLabel>
+          <h2 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+            {isRu ? 'Работы, которые показывают стиль, структуру и результат.' : 'Work that shows style, structure and result.'}
+          </h2>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-mist">
+            {isRu
+              ? 'Короткая витрина проектов: сайты, интерфейсы и сценарии, которые можно развивать в полноценные коммерческие кейсы.'
+              : 'A compact showcase of websites, interfaces and flows that can grow into full commercial case studies.'}
+          </p>
+        </div>
+
+        <a href={portfolioUrl} target="_blank" rel="noreferrer" className="inline-flex w-fit items-center justify-center rounded-2xl border border-[#58d2cf]/35 bg-white/[0.04] px-7 py-4 text-sm font-black text-white transition duration-300 hover:border-[#58d2cf]/60 hover:bg-[#58d2cf]/10">
+          {isRu ? 'Открыть портфолио' : 'Open portfolio'}
+        </a>
+      </div>
+
+      <div className="grid gap-5 lg:grid-cols-3">
+        {works.map((work, index) => (
+          <article key={work.title} className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-4 shadow-[0_24px_80px_rgba(0,0,0,.22)] transition duration-500 hover:-translate-y-1 hover:border-[#58d2cf]/35 hover:bg-white/[0.055]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#080b10]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(88,210,207,.20),transparent_35%),radial-gradient(circle_at_80%_88%,rgba(139,92,246,.16),transparent_42%)]" />
+              <img
+                src={work.image}
+                alt={work.title}
+                className="relative z-10 h-full w-full object-cover opacity-95 transition duration-700 group-hover:scale-[1.045] group-hover:opacity-100"
+                onError={(event) => {
+                  if (event.currentTarget.src.includes(work.fallback)) return;
+                  event.currentTarget.src = work.fallback;
+                }}
+              />
+              <div className="absolute left-4 top-4 z-20 rounded-full border border-[#58d2cf]/25 bg-black/45 px-4 py-2 text-[0.68rem] font-black uppercase tracking-[0.22em] text-[#65ddd9] backdrop-blur-xl">
+                {String(index + 1).padStart(2, '0')} · {work.type}
+              </div>
+            </div>
+
+            <div className="px-2 pb-3 pt-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full border border-gold/25 bg-gold/10 px-3 py-1 text-xs font-black text-gold">{work.date}</span>
+                <span className="text-xs font-black uppercase tracking-[0.18em] text-[#65ddd9]">{work.result}</span>
+              </div>
+
+              <h3 className="mt-5 text-2xl font-black text-white">{work.title}</h3>
+              <p className="mt-3 min-h-[6.4rem] text-base leading-7 text-mist">{work.text}</p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {work.tags.map((tag) => (
+                  <span key={tag} className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-xs font-bold text-mist">{tag}</span>
+                ))}
+              </div>
+
+              <a href={work.href} target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center rounded-2xl border border-[#58d2cf]/25 bg-[#58d2cf]/10 px-5 py-4 text-sm font-black text-white transition duration-300 hover:border-[#58d2cf]/55 hover:bg-[#58d2cf]/18">
+                {isRu ? 'Открыть проект' : 'Open project'}
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+// SELECTED_WORKS_SECTION_END
+
+
 function AssistantWidget({
   copy,
 }: {
@@ -1782,7 +1897,8 @@ function App() {
 
         <AssistantWidget copy={copy.assistant} />
       </div>
-    </main>
+            <SelectedWorksSection lang={lang} />
+</main>
   );
 }
 
