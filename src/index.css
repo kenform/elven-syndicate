@@ -1074,7 +1074,9 @@ html body #faq button[aria-expanded]:hover > span:last-child {
 }
 
 
-/* SELECTED WORKS FINAL POLISH */
+
+
+/* SELECTED WORKS REAL PROJECTS FIX */
 
 #works article::before {
   content: "";
@@ -1095,6 +1097,10 @@ html body #faq button[aria-expanded]:hover > span:last-child {
 #works article > * {
   position: relative;
   z-index: 1;
+}
+
+#works img {
+  object-position: center top;
 }
 
 @media (max-width: 640px) {
