@@ -1113,3 +1113,21 @@ html body #faq button[aria-expanded]:hover > span:last-child {
     border-radius: 1.6rem;
   }
 }
+
+/* SELECTED WORKS CLEAN FIX */
+#works { position: relative; z-index: 2; }
+#works article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(88,210,207,.08), transparent 38%), radial-gradient(circle at 78% 12%, rgba(139,92,246,.12), transparent 34%);
+  opacity: 0;
+  transition: opacity 520ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+#works article:hover::before { opacity: 1; }
+#works article > * { position: relative; z-index: 1; }
+@media (max-width: 640px) {
+  #works { padding-top: 4rem; padding-bottom: 4rem; }
+  #works article { border-radius: 1.6rem; }
+}
