@@ -862,7 +862,7 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     "type": "Медицинский лендинг",
     "date": "Май 2026",
     "image": "/assets/work-vitapulse.svg",
-    "href": "https://portfolio-pi-snowy-53.vercel.app/#/projects",
+    "href": "https://elven-syndicate.vercel.app/",
     "text": "Коммерческий лендинг для медицинского проекта: понятная структура, услуги, цены, специалисты, контакты и спокойная визуальная подача для доверия.",
     "result": "Структура · доверие · запись",
     "tags": [
@@ -877,7 +877,7 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     "type": "Интерфейс магазина",
     "date": "Авг 2023",
     "image": "/assets/work-react-pizza.svg",
-    "href": "https://portfolio-pi-snowy-53.vercel.app/#/projects",
+    "href": "https://elven-syndicate.vercel.app/",
     "text": "React-магазин с каталогом, фильтрами, сортировкой, пагинацией, страницами товаров и корзиной. Проект доведён до аккуратного портфолио-кейса.",
     "result": "Каталог · фильтры · корзина",
     "tags": [
@@ -892,7 +892,7 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     "type": "E-commerce интерфейс",
     "date": "Май 2026",
     "image": "/assets/work-react-sneakers.svg",
-    "href": "https://portfolio-pi-snowy-53.vercel.app/#/projects",
+    "href": "https://elven-syndicate.vercel.app/",
     "text": "Интерфейс интернет-магазина кроссовок: карточки товаров, избранное, корзина, аккуратная структура и подготовка проекта к публичному показу.",
     "result": "Магазин · UI · корзина",
     "tags": [
@@ -909,7 +909,7 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     "type": "Medical landing",
     "date": "May 2026",
     "image": "/assets/work-vitapulse.svg",
-    "href": "https://portfolio-pi-snowy-53.vercel.app/#/projects",
+    "href": "https://elven-syndicate.vercel.app/",
     "text": "A commercial landing page for a medical project: clear structure, services, pricing, specialists, contacts and a calm trust-focused visual system.",
     "result": "Structure · trust · booking",
     "tags": [
@@ -924,7 +924,7 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     "type": "Shop interface",
     "date": "Aug 2023",
     "image": "/assets/work-react-pizza.svg",
-    "href": "https://portfolio-pi-snowy-53.vercel.app/#/projects",
+    "href": "https://elven-syndicate.vercel.app/",
     "text": "A React shop with catalog, filters, sorting, pagination, product pages and cart logic, polished into a clean portfolio case.",
     "result": "Catalog · filters · cart",
     "tags": [
@@ -939,7 +939,7 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     "type": "E-commerce interface",
     "date": "May 2026",
     "image": "/assets/work-react-sneakers.svg",
-    "href": "https://portfolio-pi-snowy-53.vercel.app/#/projects",
+    "href": "https://elven-syndicate.vercel.app/",
     "text": "A sneakers shop interface with product cards, favorites, cart logic, clean structure and public portfolio-ready presentation.",
     "result": "Shop · UI · cart",
     "tags": [
