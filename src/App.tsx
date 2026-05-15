@@ -862,7 +862,7 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     "type": "Медицинский лендинг",
     "date": "Май 2026",
     "image": "/assets/work-vitapulse.svg",
-    "href": "https://kenform.github.io/Fagot/",
+    "href": "https://fagot-h0ostr9ig-kenformgod-6184s-projects.vercel.app/",
     "text": "Коммерческий лендинг для медицинского проекта: понятная структура, услуги, цены, специалисты, контакты и спокойная визуальная подача для доверия.",
     "result": "Структура · доверие · запись",
     "tags": [
@@ -909,7 +909,7 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     "type": "Medical landing",
     "date": "May 2026",
     "image": "/assets/work-vitapulse.svg",
-    "href": "https://kenform.github.io/Fagot/",
+    "href": "https://fagot-h0ostr9ig-kenformgod-6184s-projects.vercel.app/",
     "text": "A commercial landing page for a medical project: clear structure, services, pricing, specialists, contacts and a calm trust-focused visual system.",
     "result": "Structure · trust · booking",
     "tags": [
