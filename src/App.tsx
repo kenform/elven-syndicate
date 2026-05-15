@@ -888,19 +888,14 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     ]
   },
   {
-    "title": "React Sneakers",
-    "type": "E-commerce интерфейс",
-    "date": "Май 2026",
-    "image": "/assets/work-react-sneakers.svg",
-    "href": "https://react-sneakers-beta-gray.vercel.app",
-    "text": "Интерфейс интернет-магазина кроссовок: карточки товаров, избранное, корзина, аккуратная структура и подготовка проекта к публичному показу.",
-    "result": "Магазин · UI · корзина",
-    "tags": [
-      "React",
-      "API",
-      "GitHub Pages",
-      "UI"
-    ]
+    title: "RenovaFlow",
+    type: "AI-ready сайт ремонта",
+    date: "Май 2026",
+    image: "/assets/work-renovaflow.svg",
+    href: "https://renovaflow.vercel.app/",
+    text: "Премиальный бизнес-сайт для студии ремонта: услуги, квиз заявки, AI-ready помощник, Telegram-flow, процесс, доверие и тёплая интерьерная визуальная система.",
+    result: "Ремонт · квиз · Telegram",
+    tags: ["React", "TypeScript", "Vite", "Tailwind", "AI-ready", "Telegram"]
   }
 ],
   en: [
@@ -935,19 +930,14 @@ const selectedWorksContent: Record<Lang, SelectedWork[]> = {
     ]
   },
   {
-    "title": "React Sneakers",
-    "type": "E-commerce interface",
-    "date": "May 2026",
-    "image": "/assets/work-react-sneakers.svg",
-    "href": "https://react-sneakers-beta-gray.vercel.app",
-    "text": "A sneakers shop interface with product cards, favorites, cart logic, clean structure and public portfolio-ready presentation.",
-    "result": "Shop · UI · cart",
-    "tags": [
-      "React",
-      "API",
-      "GitHub Pages",
-      "UI"
-    ]
+    title: "RenovaFlow",
+    type: "AI-ready renovation website",
+    date: "May 2026",
+    image: "/assets/work-renovaflow.svg",
+    href: "https://renovaflow.vercel.app/",
+    text: "A premium business website for a renovation studio: services, lead quiz, AI-ready assistant, Telegram handoff, process blocks, trust elements and warm interior visual system.",
+    result: "Renovation · quiz · Telegram",
+    tags: ["React", "TypeScript", "Vite", "Tailwind", "AI-ready", "Telegram"]
   }
 ],
 };

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+<defs>
+<radialGradient id="g" cx="18%" cy="18%" r="80%"><stop offset="0%" stop-color="#5a3a1e"/><stop offset="48%" stop-color="#21160f"/><stop offset="100%" stop-color="#090706"/></radialGradient>
+<linearGradient id="l" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ead7b0"/><stop offset="100%" stop-color="#c89555"/></linearGradient>
+<filter id="b"><feGaussianBlur stdDeviation="26"/></filter>
+</defs>
+<rect width="1200" height="750" fill="url(#g)"/>
+<circle cx="970" cy="110" r="230" fill="#d7a15f" opacity=".13" filter="url(#b)"/>
+<circle cx="140" cy="660" r="260" fill="#ead7b0" opacity=".08" filter="url(#b)"/>
+<rect x="86" y="86" width="1028" height="578" rx="42" fill="#120d09" opacity=".75" stroke="url(#l)" stroke-opacity=".38"/>
+<rect x="140" y="140" width="440" height="315" rx="30" fill="#1f1711" stroke="#ead7b0" stroke-opacity=".23"/>
+<path d="M170 405 L545 175" stroke="#ead7b0" stroke-opacity=".18" stroke-width="2"/>
+<path d="M170 190 H545 M170 250 H545 M170 310 H545 M170 370 H545 M235 160 V435 M310 160 V435 M385 160 V435 M460 160 V435" stroke="#ead7b0" stroke-opacity=".10"/>
+<rect x="635" y="145" width="420" height="92" rx="28" fill="#2b1d13" stroke="#d7a15f" stroke-opacity=".30"/>
+<rect x="635" y="270" width="420" height="92" rx="28" fill="#2b1d13" stroke="#d7a15f" stroke-opacity=".18"/>
+<rect x="635" y="395" width="420" height="92" rx="28" fill="#2b1d13" stroke="#d7a15f" stroke-opacity=".18"/>
+<text x="150" y="555" fill="#ffffff" font-family="Arial,sans-serif" font-size="74" font-weight="900">RenovaFlow</text>
+<text x="155" y="612" fill="#d7a15f" font-family="Arial,sans-serif" font-size="26" font-weight="800" letter-spacing="8">AI-READY REPAIR WEBSITE</text>
+</svg>
